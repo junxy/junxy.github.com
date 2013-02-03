@@ -1,13 +1,13 @@
-# ----------------------- #
+﻿# ----------------------- #
 #      Main Configs       #
 # ----------------------- #
 
-url: http://junxy.github.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
+url: http://pcme.info
+title: junxy's Blog
+subtitle: 一程序员的博客.
 author: junxy
 simple_search: http://google.com/search
-description:
+description: 编程乃人生中一大乐趣也！
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
