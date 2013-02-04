@@ -4,5 +4,6 @@ title: 'mark'
 date: 2012-6-20 16:12
 micolog_id: 6001
 comments: false
+categories: tech test
 ---
 标记一下，成功安装GAE博客程序

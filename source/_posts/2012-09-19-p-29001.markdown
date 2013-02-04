@@ -4,11 +4,9 @@ title: 'msbuild利用cpu多核加速'
 date: 2012-9-19 10:26
 micolog_id: 29001
 comments: false
+categories: tech
 ---
 :&gt; msbuild /t:Rebuild /p:Configuration=Release **/m**
 
-/m 自动检测cpu数量启动对应数量进程
-
-
-
+/m 自动检测cpu数量启动对应数量进程
 

@@ -4,6 +4,7 @@ title: '使用NuGet包不提交到源代码控制'
 date: 2012-9-19 10:10
 micolog_id: 27001
 comments: false
+categories: tech
 ---
 参考：
 
