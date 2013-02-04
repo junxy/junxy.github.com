@@ -7,23 +7,23 @@ comments: false
 ---
 安装完rails后
 
-#创建一个rails项目
+\#创建一个rails项目
 
 rails new project_name
 
 cd project_name
 
-#创建一个控制器
+\#创建一个控制器
 
 rails generate controller
 
-#启动一个rails服务器
+\#启动一个rails服务器
 
 rails server
 
 *提高速度
 
-#跳过bundle安装，加快速度
+\#跳过bundle安装，加快速度
 
 rails new project_name --skip-bundle
 
@@ -31,7 +31,7 @@ bundle install --local
 
 *中文编码问题
 
-#coding: UTF-8
+\#coding: UTF-8
 
 &amp;nbsp;
 
