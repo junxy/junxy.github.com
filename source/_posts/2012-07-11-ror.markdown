@@ -39,6 +39,12 @@ bundle install --local
 
 taobao rubygems mirror:
 
-http://ruby.taobao.org/
+<http://ruby.taobao.org/>
+
+**更新：**
+
+比较全的ruby&rails环境搭建教程：
+
+<http://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/>
 
 未完待续。。。
