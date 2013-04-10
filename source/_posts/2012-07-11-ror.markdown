@@ -41,7 +41,7 @@ taobao rubygems mirror:
 
 <http://ruby.taobao.org/>
 
-**更新：**
+**2013/04/10更新：**
 
 比较全的ruby&rails环境搭建教程：
 

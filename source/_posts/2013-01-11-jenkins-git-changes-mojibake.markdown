@@ -21,4 +21,4 @@ x:\Jenkins\jenkins.xml 新增<del>蓝色</del>粗体标记参数(-Dfile.encoding
 
 **更新**：发现 msbuild 输出的 log 显示时乱码，想到把 cmd 页码也该为 UTF-8，最后试验了，问题解决。中文系统默认代码页 936 ，需要改为 65001，通过修改注册表的方式：参考：[http://hi.baidu.com/study_together/item/b6dda48330b99be1e496e0f9](http://hi.baidu.com/study_together/item/b6dda48330b99be1e496e0f9)
 
-**更新**：已经有更好的方式来解决:[（二）](http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/)
+**2013/04/10更新**：已经有更好的方式来解决:[（二）](http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/)
