@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Jenkins中Git仓库变更集中文注释显示乱码问题（二） - junxy's Blog</title>
+  <meta name="author" content="junxy">
+
+  
+  <meta name="description" content="之前 一篇文章 写过：Jenkins 中使用 Git 仓库中有 Log 日志非 ASCII ，变更集会出现乱码以及一些解决过程。如今终于有人提交了这个 BUG 的修复，在 Jenkins 插件 Git Plugin 介绍页面可以看到最新的 Changelog，但是目前最新的版本还是 1.3， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
+
+  
+  <link rel="canonical" href="http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="junxy's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37583552-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">junxy's Blog</a></h1>
+  
+    <h2>作为一个有所追求的程序员，努力成为Rubyist中。</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:pcme.info" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Jenkins中Git仓库变更集中文注释显示乱码问题（二）</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-10T20:04:00+08:00" pubdate data-updated="true">Apr 10<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>之前 <a href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/">一篇文章</a> 写过：Jenkins 中使用 Git 仓库中有 Log 日志非 <a href="http://en.wikipedia.org/wiki/ASCII">ASCII</a> ，变更集会出现乱码以及一些解决过程。如今终于有人提交了这个 BUG 的修复，在 Jenkins 插件 Git Plugin 介绍页面可以看到最新的 <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Changelog">Changelog</a>，但是目前最新的版本还是 1.3，要等到下一版本发布才能享用？既然都有人提交了修复此 BUG 代码，那自己动手编译一个插件吧，于是尝试在自己的 MBP·13&#8217; 把 <a href="https://github.com/jenkinsci/git-plugin">git-plugin 源码</a> Clone 下来，开始编译插件（Jenkins 插件通过 <a href="http://en.wikipedia.org/wiki/Apache_Maven">Maven</a> 来编译，最后编译成 .hpi 格式的文件，可以在 Jenkins 直接上传安装），编译过程颇为麻烦，主要是首次编译需要下载很多依赖，而国内网络你懂得，为此还发了一条<a href="https://twitter.com/jun_cn/status/321606102598946817">推</a>，最后确认2个原因导致编译失败：</p>
+
+<ol>
+<li>Clone 下来的源码 Master 分支总是构建失败，可能是代码有问题，具体没去排查，JAVA虽学过，这么多年没用就不折腾了。</li>
+<li>切换工作区至 tag：git-1.3.0，发现编译还是有错误，原因硬盘的名称中有空格，路径转换时对空格处理的不一样，导致找不到某些文件，在磁盘工具中把名称改了，发现 Terminal 中名称没改变，还重启了电脑（编译一次要4-5分支，重启只要20秒），重试，编译OK，成功后可以在 target 目录里看到名称为 git.hpi 文件。</li>
+</ol>
+
+
+<p>既然这样，那就好办了，我可以 Checkout git-1.3.0 稳定版，在稳定版的基础上通过 <code>git cherry-pick cdf149a73a51861bff07897aa42fa0535b88f99e</code> 合并 Fixd 的提交，并做了一点点<a href="https://github.com/junxy/git-plugin/compare/git-1.3.1-fix-log-utf8">修改</a>，最后顺利编译成功，不想折腾可以下载我已经编译好的 <a href="http://vdisk.weibo.com/s/x5uCM">git.hpi</a>，这样就可以提前享用，不用等官方发布啦。</p>
+
+<p><strong>相关知识</strong>：</p>
+
+<p>Maven：</p>
+
+<p><code>$ mvn package</code> ＃本地打包</p>
+
+<p><code>$ mvn cleanup</code> ＃清理编译</p>
+
+<p><em>以上命令直接在项目根目录，pom.xml 文件所在目录下执行即可</em></p>
+
+<p>更多参考：<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a></p>
+
+<p>Git:
+<a href="https://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html">git cherry-pike</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">junxy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-10T20:04:00+08:00" pubdate data-updated="true">Apr 10<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/" title="Previous Post: Mac OS X Mountain Lion GIT Auto Completion">&laquo; Mac OS X Mountain Lion GIT Auto Completion</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/05/01/learning-coffee-script/" title="Next Post: 学习 coffee-script 及环境安装 （Mac）">学习 coffee-script 及环境安装 （Mac） &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/06/how-to-migration-svn-to-git/">如何将 SVN 迁移至 GIT 并保留所有历史记录</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/01/learning-coffee-script/">学习 coffee-script 及环境安装 （Mac）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/10/jenkins-git-changes-mojibake-2/">Jenkins中Git仓库变更集中文注释显示乱码问题（二）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/">Mac OS X Mountain Lion GIT Auto Completion</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/02/happy-new-year/">happy new year</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/ayijun@gmail.com?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img alt="知识共享许可协议" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+  <br />本站之所有未作特别说明的内容均采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh">知识共享署名-非商业性使用-相同方式共享 3.0 未本地化版本许可协议</a>进行许可。
+  <br />
+  Copyright &copy; 2013 - junxy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'junxygithubcom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/';
+        var disqus_url = 'http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

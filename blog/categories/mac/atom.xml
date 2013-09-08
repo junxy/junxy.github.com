@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mac | junxy's Blog]]></title>
+  <link href="http://pcme.info/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://pcme.info/"/>
+  <updated>2013-09-08T23:50:28+08:00</updated>
+  <id>http://pcme.info/</id>
+  <author>
+    <name><![CDATA[junxy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mac OS X Mountain Lion GIT Auto Completion]]></title>
+    <link href="http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/"/>
+    <updated>2013-02-05T13:31:00+08:00</updated>
+    <id>http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion</id>
+    <content type="html"><![CDATA[<p>MacBook Pro 很早就安装了 Git，平时用的不多，也就没配置自动完成提示，今天有点时间在 Mac 上，想把自动提示配置加进去，网上找了发现有不同的方法，这里就记录下符合我这种情况下的。首先，要安装 Git，怎么安装就不说了，Google 上有很多教程，我是通过 Homebrew 安装的，
+运行： $ <code>brew install git bash-completion</code>
+安装过了的 brew 会提示：</p>
+
+<p>``` bash</p>
+
+<pre><code>Error: git-1.8.1.2 already installed
+Error: bash-completion-1.3 already installed
+</code></pre>
+
+<p>```</p>
+
+<p>接着， besh $ <code>vim ~/.bash_profile</code></p>
+
+<p>加入下面代码：
+``` bash</p>
+
+<pre><code>if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+</code></pre>
+
+<p>```</p>
+
+<p>保存，重新进入 bash，$ <code>git c</code> 按两下 <code>Tab</code> 键，看到下面提示，配置就完成了。</p>
+
+<p>``` bash</p>
+
+<pre><code>checkout                 ci                       clean                    column                   credential               
+cherry                   citool                   clone                    commit                   credential-osxkeychain   
+cherry-pick              cl                       co                       config                   
+</code></pre>
+
+<p>```</p>
+
+<p>参考：<a href="https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion">https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion</a></p>
+]]></content>
+  </entry>
+  
+</feed>

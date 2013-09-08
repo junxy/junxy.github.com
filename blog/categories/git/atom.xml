@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | junxy's Blog]]></title>
+  <link href="http://pcme.info/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://pcme.info/"/>
+  <updated>2013-09-08T23:50:28+08:00</updated>
+  <id>http://pcme.info/</id>
+  <author>
+    <name><![CDATA[junxy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[如何将 SVN 迁移至 GIT 并保留所有历史记录]]></title>
+    <link href="http://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git/"/>
+    <updated>2013-09-06T23:06:00+08:00</updated>
+    <id>http://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git</id>
+    <content type="html"><![CDATA[<h2>前言</h2>
+
+<p>GIT 已经无处不在，你们还在用 SVN 管理源代码吗？如果你和你的小伙伴们正在考虑，从 SVN 迁移至 GIT，如果你们的 SVN 仓库已经够庞大（1W+ commits）和复杂（后面复杂情况详解），又想在迁移之后保留所有更改记录，这篇文章也许正是你要找的。</p>
+
+<h2>准备工作</h2>
+
+<p>需要安装那些软件&amp;工具？</p>
+
+<ol>
+<li><a href="http://subgit.com/index.html">SubGit</a></li>
+<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JRE</a></li>
+<li><a href="http://subversion.apache.org/packages.html#windows">Subversion</a></li>
+</ol>
+
+
+<p><a href="http://subgit.com/index.html">SubGit</a> 是个提供从 SVN 安全迁移至 GIT 的商业工具软件，这里主要是用到它将 SVN 提交历史翻译为 GIT 提交这一免费功能。其官网提供二进制包<a href="http://subgit.com/download/index.html">下载</a>（目前最新版本2.0.0，支持远程 SVN 地址）。
+因为 SubGit 跨平台，基于 Java 写的，需要安装 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JRE</a>（JAVA 运行环境） 才能够运行。
+此外，还将用到 SVN 命令，需要安装 <a href="http://subversion.apache.org/packages.html#windows">Subversion</a> 并配置至 <code>%PATH%</code> 环境变量（这里我是直接使用 VisualSVN Server 安装目录下 bin 自带的 Subversion）。</p>
+
+<h2>一. 简单情况</h2>
+
+<p>只需要几个步骤就能完成 SVN 至 GIT 的转换：</p>
+
+<p>```bat
+＃ 1. 解压 SubGit-2.0.0.zip 至路径如：x:\SubGit-2.0.0，x: 替换为实际分区。
+＃ 2. 执行配置，会生成默认配置，如需密码访问远程 SVN 服务器，
+＃    在 SubGit_repository_name\SubGit\password 设置访问密码，
+＃ 说明：
+＃   SubGit_repository_name\SubGit\authors.txt 配置 SVN 中用户提交转换 GIT 提交后对应的用户名和邮箱，
+＃   可将多个 SVN 帐号映射到一个用户名和邮箱，格式如下
+＃   svnUser = Git User <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x75;&#x73;&#101;&#114;&#64;&#x65;&#x78;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;">&#x75;&#115;&#x65;&#x72;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;</a>
+x:> x:\SubGit-2.0.0\bin\SubGit.bat configure --svn-url [http://svn.domain.com/svn/svn_repository_name/ or file:///x:/svn_repository_name] SubGit_repository_name</p>
+
+<h1>执行安装</h1>
+
+<p>x:> x:\SubGit-2.0.0\bin\SubGit install x:\SubGit_repository_name</p>
+
+<h1>Git Bash 中输入，克隆一份 GIT 仓库，不含工作区，推送至指定 GIT 服务器</h1>
+
+<p>$ git clone SubGit_repository_name working-tree --bare
+$ git remote add remote_name git@github.com/own_name/project_name.git
+$ git push remote_name --all
+$ git push remote_name --tags</p>
+
+<p>```</p>
+
+<h2>二. 复杂情况</h2>
+
+<p>有哪些复杂情况？</p>
+
+<h3>1. 目录变更</h3>
+
+<p>前期 SVN 仓库创建时没有使用标准结构（trunk，branchs，tags），后期修改为标准结构，比如： <code>/svn/project_name/ &lt;=&gt; /svn/project_name/trunk …）</code>，想保留这些提交历史记录。</p>
+
+<p>比较麻烦的就是这种情况，目前还没发现有哪些转换工具可以直接支持，这里通过一种变通的方式，即先把包含不正确结构历史记录的 SVN 仓库转换为都正确结构历史记录的 SVN 仓库。</p>
+
+<p>用到几个 SVN 的命令：
+```bat</p>
+
+<h1>-r 1391:1391：指定导出范围</h1>
+
+<h1>--incremental 增量导出</h1>
+
+<h1>SVN 仓库存放路径</h1>
+
+<h1>导出文件存放路径</h1>
+
+<p>x:> svnadmin dump -r 1391:1391 --incremental x:\Repositories\project_name > x:\temp\svn-project_name-1391-1391-bak.dump</p>
+
+<h1>创建一个临时仓库，导入 SVN 记录</h1>
+
+<p>x:> svnadmin create x:\Repositories\project_name_temp</p>
+
+<h1>原来是什么样，导入后还是什么样</h1>
+
+<p>x:> svnadmin load x:\Repositories\project_name_temp &lt; x:\temp\svn-project_name-1391-1391-bak.dump</p>
+
+<h1>将特定目录的提交分离出来</h1>
+
+<p>x:> cat x:\temp\svn-project_name-0-1390-bak.dump | svndumpfilter exclude Documents --drop-empty-revs --renumber-revs > x:\temp\svn-project_name-0-1390-eDocuments-bak.dump
+x:> cat x:\temp\svn-project_name-0-1390-bak.dump | svndumpfilter include Documents --drop-empty-revs --renumber-revs > x:\temp\svn-project_name-0-1390-iDocuments-bak.dump</p>
+
+<h1>导入至目录：trunk/source，即 svn/abc &lt;=> svn/trunk/source/abc</h1>
+
+<p>x:> svnadmin load --parent-dir trunk/sources x:\Repositories\x:project_name_temp &lt; x:\temp\svn-project_name-1391-1391-bak.dump</p>
+
+<p>```</p>
+
+<h3>2. 有开发分支</h3>
+
+<p>在 SVN 仓库中有设 Develop 分支，比如：<code>svn/project_name/trunk（稳定分支）,svn/project_name/develop（开发分支）</code></p>
+
+<p>通过修改 SubGit 配置，可以实现转换后 GIT 包含 develop 分支。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>【config_001】 - x:\SubGit_repository_name\SubGit\config </span><a href='http://subgit.com/book-remote/index.html#N202CE'>SubGit Remote Book</a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;…
+</span><span class='line'><span class="nv">trunk</span> <span class="o">=</span> trunk:refs/heads/master
+</span><span class='line'><span class="nv">branches</span> <span class="o">=</span> Develop:refs/heads/develop <span class="c"># 新增，Develop 指对应 SVN 目录（svn/project_name/Develop），注意大小写</span>
+</span><span class='line'><span class="nv">branches</span> <span class="o">=</span> branches/*:refs/heads/*
+</span><span class='line'><span class="nv">tags</span> <span class="o">=</span> tags/*:refs/tags/*
+</span><span class='line'><span class="nv">shelves</span> <span class="o">=</span> shelves/*:refs/shelves/*
+</span><span class='line'>…
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>3. 实例</h3>
+
+<h4>说明</h4>
+
+<p>项目A，托管在 Windows Server 安装的 VisualSVN Server 上，已有超过 1W+ commits，项目前期采用的结构为【1】。大概在 Commit Revesion：<code>1391-1394</code> 时，有位小伙伴意识到，我们应该用分支需要 Branchs，Tags，于是结构调整为【2】。再后来来了位新伙伴，说你们项目怎么没有 Develop 分支呢？于是调整新增了【3】：<code>svn/project_a/develop</code> 作为开发分支。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>【1】 - 项目初期  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>svn/project_a&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;+ sources
+</span><span class='line'>+ documents
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>【2】 - Commit Revesion 1391-1394  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>svn/project_a&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;+ trunk
+</span><span class='line'>    +- sources
+</span><span class='line'>        +- documents
+</span><span class='line'>+ tags
+</span><span class='line'>    …
+</span><span class='line'>+ branchs
+</span><span class='line'>    …
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>【3】 - 新增开发分支  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>svn/project_a&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;trunk
+</span><span class='line'>    sources
+</span><span class='line'>        documents
+</span><span class='line'>+ develop
+</span><span class='line'>    + sources
+</span><span class='line'>        + documents
+</span><span class='line'>tags
+</span><span class='line'>    …
+</span><span class='line'>branchs
+</span><span class='line'>    …
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>操作</h4>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>实例 - 将 SVN 中所有提交历史记录，包括所有分支(branchs)和标签(tags)，迁移至 GIT。  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="err">原仓库</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">1</span><span class="p">.</span> <span class="err">创建临时仓库</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">svnadmin</span> <span class="n">create</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Repositories</span><span class="p">\</span><span class="n">project_a_temp</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">2</span><span class="p">.</span> <span class="err">将目录改变的</span> <span class="n">Commits</span> <span class="err">提取出来</span> <span class="err">在临时仓库中顺序移至到了前面</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">svnadmin</span> <span class="n">dump</span> <span class="n">-r</span> <span class="n">1391</span><span class="err">:</span><span class="n">1391</span> <span class="p">-</span><span class="n">-incremental</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a</span> <span class="p">&gt;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">1391</span><span class="p">-</span><span class="n">1391-bak</span><span class="p">.</span><span class="n">dump</span>
+</span><span class='line'><span class="n">svnadmin</span> <span class="n">load</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a_temp</span> <span class="p">&amp;</span><span class="n">lt</span><span class="err">;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">1391</span><span class="p">-</span><span class="n">1391-bak</span><span class="p">.</span><span class="n">dump</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">svnadmin</span> <span class="n">dump</span> <span class="n">-r</span> <span class="n">1394</span><span class="err">:</span><span class="n">1394</span> <span class="p">-</span><span class="n">-incremental</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a</span> <span class="p">&gt;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">1394</span><span class="p">-</span><span class="n">1394-bak</span><span class="p">.</span><span class="n">dump</span>
+</span><span class='line'><span class="n">svnadmin</span> <span class="n">load</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a_temp</span> <span class="p">&amp;</span><span class="n">lt</span><span class="err">;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">1394</span><span class="p">-</span><span class="n">1394-bak</span><span class="p">.</span><span class="n">dump</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">3</span><span class="p">.</span> <span class="err">导出结构【</span><span class="n">1</span><span class="err">】时的</span> <span class="n">Commits</span><span class="err">，在临时仓库中重写</span> <span class="n">Commit</span><span class="err">是</span> <span class="err">为结构【</span><span class="n">2</span><span class="err">】</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">svnadmin</span> <span class="n">dump</span> <span class="n">-r</span> <span class="n">0</span><span class="err">:</span><span class="n">1390</span> <span class="p">-</span><span class="n">-incremental</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a</span> <span class="p">&gt;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">0</span><span class="p">-</span><span class="n">1390-bak</span><span class="p">.</span><span class="n">dump</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">3</span><span class="p">.</span><span class="n">1</span> <span class="err">分别过滤</span> <span class="p">&amp;</span><span class="n">amp</span><span class="err">;</span> <span class="err">提取</span> <span class="n">Document</span> <span class="err">文档的提交记录，并将其重写</span> <span class="n">svn</span><span class="p">/</span><span class="n">sources</span><span class="p">/</span><span class="n">Documents</span><span class="p">/</span> <span class="p">&amp;</span><span class="n">lt</span><span class="err">;</span><span class="p">=&gt;</span> <span class="n">svn</span><span class="p">/</span><span class="n">trunk</span><span class="p">/</span><span class="n">sources</span><span class="p">/</span><span class="n">Documents</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">cat</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">0</span><span class="p">-</span><span class="n">1390-bak</span><span class="p">.</span><span class="n">dump</span> <span class="p">|</span> <span class="n">svndumpfilter</span> <span class="n">exclude</span> <span class="n">Documents</span> <span class="p">-</span><span class="n">-drop-empty-revs</span> <span class="p">-</span><span class="n">-renumber-revs</span> <span class="p">&gt;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">0</span><span class="p">-</span><span class="n">1390-eDocument-bak</span><span class="p">.</span><span class="n">dump</span>
+</span><span class='line'><span class="n">svnadmin</span> <span class="n">load</span> <span class="p">-</span><span class="n">-parent-dir</span> <span class="n">trunk</span><span class="p">/</span><span class="n">sources</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a_temp</span> <span class="p">&amp;</span><span class="n">lt</span><span class="err">;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">0</span><span class="p">-</span><span class="n">1390-eDocument-bak</span><span class="p">.</span><span class="n">dump</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">cat</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">0</span><span class="p">-</span><span class="n">1390-bak</span><span class="p">.</span><span class="n">dump</span> <span class="p">|</span> <span class="n">svndumpfilter</span> <span class="n">include</span> <span class="n">Documents</span> <span class="p">-</span><span class="n">-drop-empty-revs</span> <span class="p">-</span><span class="n">-renumber-revs</span> <span class="p">&gt;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">0</span><span class="p">-</span><span class="n">1390-iDocument-bak</span><span class="p">.</span><span class="n">dump</span>
+</span><span class='line'><span class="n">svnadmin</span> <span class="n">load</span> <span class="p">-</span><span class="n">-parent-dir</span> <span class="n">trunk</span><span class="p">/</span><span class="n">sources</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a_temp</span> <span class="p">&amp;</span><span class="n">lt</span><span class="err">;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">0</span><span class="p">-</span><span class="n">1390-iDocument-bak</span><span class="p">.</span><span class="n">dump</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">4</span><span class="p">.</span> <span class="err">将剩下的</span> <span class="n">Commits</span> <span class="err">导出导入至临时仓库</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">svnadmin</span> <span class="n">dump</span> <span class="n">-r</span> <span class="n">1396</span><span class="err">:</span><span class="n">HEAD</span> <span class="p">-</span><span class="n">-incremental</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a</span> <span class="p">&gt;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">1396</span><span class="err">:</span><span class="n">HEAD-bak</span><span class="p">.</span><span class="n">dump</span>
+</span><span class='line'><span class="n">svnadmin</span> <span class="n">load</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">project_a_temp</span> <span class="p">&amp;</span><span class="n">lt</span><span class="err">;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">svn-project_a</span><span class="p">-</span><span class="n">1396</span><span class="err">:</span><span class="n">HEAD-bak</span><span class="p">.</span><span class="n">dump</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">5</span> <span class="n">SubGit</span> <span class="err">配置</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">x</span><span class="err">:</span><span class="p">&gt;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">SubGit</span><span class="p">-</span><span class="n">2</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">\</span><span class="n">bin</span><span class="p">\</span><span class="n">SubGit</span><span class="p">.</span><span class="n">bat</span> <span class="n">configure</span> <span class="p">-</span><span class="n">-svn-url</span> <span class="n">file</span><span class="err">:</span><span class="p">///</span><span class="n">x</span><span class="err">:</span><span class="p">/</span><span class="n">Reposities</span><span class="p">/</span><span class="n">project_a_temp</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">SubGit_project_a</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">5</span><span class="p">.</span><span class="n">1</span> <span class="err">编辑开发者映射列表</span> <span class="n">SubGit_project_a</span><span class="p">\</span><span class="n">SubGit</span><span class="p">\</span><span class="n">authors</span><span class="p">.</span><span class="n">txt</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">5</span><span class="p">.</span><span class="n">2</span> <span class="err">编辑</span><span class="n">SubGit</span><span class="err">配置【</span><span class="n">config_001</span><span class="err">】，支持</span> <span class="n">Develop</span> <span class="err">分支导入</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">6</span><span class="p">.</span> <span class="err">执行安装，漫长的等待…</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="n">x</span><span class="err">:</span><span class="p">&gt;</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">SubGit</span><span class="p">-</span><span class="n">2</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">\</span><span class="n">bin</span><span class="p">\</span><span class="n">SubGit</span> <span class="n">install</span> <span class="n">x</span><span class="err">:</span><span class="p">\</span><span class="n">Reposities</span><span class="p">\</span><span class="n">SubGit_project_a</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">h1</span><span class="p">&gt;</span><span class="n">7</span><span class="p">.</span> <span class="err">使用</span> <span class="n">Git</span> <span class="n">Bash</span><span class="err">，克隆一份</span> <span class="n">GIT</span> <span class="err">仓库，不含工作区，推送所有分支（</span><span class="n">branchs</span><span class="err">）和标签（</span><span class="n">tags</span><span class="err">）至指定</span> <span class="n">GIT</span> <span class="err">服务器</span><span class="p">&lt;/</span><span class="n">h1</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;$</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">SubGit_project_a</span> <span class="n">working-tree</span> <span class="p">-</span><span class="n">-bare</span>
+</span><span class='line'><span class="p">$</span> <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">remote_name</span> <span class="n">git</span><span class="nv">@github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">own_name</span><span class="p">/</span><span class="n">project_a</span><span class="p">.</span><span class="n">git</span>
+</span><span class='line'><span class="p">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">remote_name</span> <span class="p">-</span><span class="n">-all</span>
+</span><span class='line'><span class="p">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">remote_name</span> <span class="p">-</span><span class="n">-tags</span><span class="p">&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>写在最后</h2>
+
+<p>1W+ Commits 的 SVN 仓库迁移至 GIT 大概需要4-6个小时（源代码100Mb，仅当参考，但这已经比 GIT 提供的 <code>git svn</code> 命令不知要快多少倍了 ）， 当完成迁移后为安全起见，我们还需要对源代码做一次校验，即，捡出 SVN 最新代码（<code>svn/project_a/develop</code>）和 GIT 最新代码（<code>git clone git@gitserver.com project_a -b develop</code>），让后使用 <a href="http://www.scootersoftware.com"><code>BCompare</code></a> 或类似工具做一次差异比较，确认所有源代码无差异，这才恭喜你，完成了迁移。</p>
+
+<p>由于 GIT 的学习有一定曲线，如果小伙伴开发团队比较大（20+ 人），小伙伴们对 GIT 接受程度肯定有所差异，为了减少迁移至 GIT 对大伙的影响，可以考虑采用 SubGit 提供的方案，同时支持 SVN 和 GIT 双向提交。</p>
+
+<p>由于作者最开始这么做已经是半年前的时候（当时 SubGit 还是 <code>v1.x.x</code> 现在都 <code>v2.0.0</code>），其中 SubGit 配置和安装部分直接替换为 <code>v2.0.0</code> 用法。实例部分直接参考之前生产环境操作记录，重要部分也经过测试，但个人精力测试范围有限，如有遗漏或异常欢迎留言和反馈。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac OS X Mountain Lion GIT Auto Completion]]></title>
+    <link href="http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/"/>
+    <updated>2013-02-05T13:31:00+08:00</updated>
+    <id>http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion</id>
+    <content type="html"><![CDATA[<p>MacBook Pro 很早就安装了 Git，平时用的不多，也就没配置自动完成提示，今天有点时间在 Mac 上，想把自动提示配置加进去，网上找了发现有不同的方法，这里就记录下符合我这种情况下的。首先，要安装 Git，怎么安装就不说了，Google 上有很多教程，我是通过 Homebrew 安装的，
+运行： $ <code>brew install git bash-completion</code>
+安装过了的 brew 会提示：</p>
+
+<p>``` bash</p>
+
+<pre><code>Error: git-1.8.1.2 already installed
+Error: bash-completion-1.3 already installed
+</code></pre>
+
+<p>```</p>
+
+<p>接着， besh $ <code>vim ~/.bash_profile</code></p>
+
+<p>加入下面代码：
+``` bash</p>
+
+<pre><code>if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+</code></pre>
+
+<p>```</p>
+
+<p>保存，重新进入 bash，$ <code>git c</code> 按两下 <code>Tab</code> 键，看到下面提示，配置就完成了。</p>
+
+<p>``` bash</p>
+
+<pre><code>checkout                 ci                       clean                    column                   credential               
+cherry                   citool                   clone                    commit                   credential-osxkeychain   
+cherry-pick              cl                       co                       config                   
+</code></pre>
+
+<p>```</p>
+
+<p>参考：<a href="https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion">https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion</a></p>
+]]></content>
+  </entry>
+  
+</feed>

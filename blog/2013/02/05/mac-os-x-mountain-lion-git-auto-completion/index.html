@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mac OS X Mountain Lion GIT Auto Completion - junxy's Blog</title>
+  <meta name="author" content="junxy">
+
+  
+  <meta name="description" content="MacBook Pro 很早就安装了 Git，平时用的不多，也就没配置自动完成提示，今天有点时间在 Mac 上，想把自动提示配置加进去，网上找了发现有不同的方法，这里就记录下符合我这种情况下的。首先，要安装 Git，怎么安装就不说了，Google 上有很多教程，我是通过 Homebrew 安装的 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
+
+  
+  <link rel="canonical" href="http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="junxy's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37583552-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">junxy's Blog</a></h1>
+  
+    <h2>作为一个有所追求的程序员，努力成为Rubyist中。</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:pcme.info" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Mac OS X Mountain Lion GIT Auto Completion</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-05T13:31:00+08:00" pubdate data-updated="true">Feb 5<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>MacBook Pro 很早就安装了 Git，平时用的不多，也就没配置自动完成提示，今天有点时间在 Mac 上，想把自动提示配置加进去，网上找了发现有不同的方法，这里就记录下符合我这种情况下的。首先，要安装 Git，怎么安装就不说了，Google 上有很多教程，我是通过 Homebrew 安装的，
+运行： $ <code>brew install git bash-completion</code>
+安装过了的 brew 会提示：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Error: git-1.8.1.2 already installed
+</span><span class='line'>Error: bash-completion-1.3 already installed
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接着， besh $ <code>vim ~/.bash_profile</code></p>
+
+<p>加入下面代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="sb">`</span>brew --prefix<span class="sb">`</span>/etc/bash_completion <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'>  . <span class="sb">`</span>brew --prefix<span class="sb">`</span>/etc/bash_completion
+</span><span class='line'><span class="k">fi</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>保存，重新进入 bash，$ <code>git c</code> 按两下 <code>Tab</code> 键，看到下面提示，配置就完成了。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>checkout                 ci                       clean                    column                   credential
+</span><span class='line'>cherry                   citool                   clone                    commit                   credential-osxkeychain
+</span><span class='line'>cherry-pick              cl                       co                       config
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>参考：<a href="https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion">https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">junxy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-05T13:31:00+08:00" pubdate data-updated="true">Feb 5<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/mac/'>mac</a>, <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/02/happy-new-year/" title="Previous Post: happy new year">&laquo; happy new year</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/04/10/jenkins-git-changes-mojibake-2/" title="Next Post: Jenkins中Git仓库变更集中文注释显示乱码问题（二）">Jenkins中Git仓库变更集中文注释显示乱码问题（二） &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/06/how-to-migration-svn-to-git/">如何将 SVN 迁移至 GIT 并保留所有历史记录</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/01/learning-coffee-script/">学习 coffee-script 及环境安装 （Mac）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/10/jenkins-git-changes-mojibake-2/">Jenkins中Git仓库变更集中文注释显示乱码问题（二）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/">Mac OS X Mountain Lion GIT Auto Completion</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/02/happy-new-year/">happy new year</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/ayijun@gmail.com?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img alt="知识共享许可协议" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+  <br />本站之所有未作特别说明的内容均采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh">知识共享署名-非商业性使用-相同方式共享 3.0 未本地化版本许可协议</a>进行许可。
+  <br />
+  Copyright &copy; 2013 - junxy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'junxygithubcom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/';
+        var disqus_url = 'http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
