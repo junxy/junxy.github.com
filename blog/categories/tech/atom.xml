@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tech | junxy's Blog]]></title>
   <link href="http://pcme.info/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://pcme.info/"/>
-  <updated>2013-11-29T23:38:42+08:00</updated>
+  <updated>2013-11-29T23:45:08+08:00</updated>
   <id>http://pcme.info/</id>
   <author>
     <name><![CDATA[junxy]]></name>
@@ -116,7 +116,7 @@
 ＃ 说明：
 ＃   SubGit_repository_name\SubGit\authors.txt 配置 SVN 中用户提交转换 GIT 提交后对应的用户名和邮箱，
 ＃   可将多个 SVN 帐号映射到一个用户名和邮箱，格式如下
-＃   svnUser = Git User <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x75;&#115;&#x65;&#x72;&#x40;&#x65;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x75;&#115;&#101;&#x72;&#64;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#x6d;</a>
+＃   svnUser = Git User <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#117;&#115;&#101;&#x72;&#64;&#x65;&#120;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#117;&#115;&#x65;&#114;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a>
 x:> x:\SubGit-2.0.0\bin\SubGit.bat configure --svn-url [http://svn.domain.com/svn/svn_repository_name/ or file:///x:/svn_repository_name] SubGit_repository_name</p>
 
 <h1>执行安装</h1>
