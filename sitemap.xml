@@ -57,6 +57,12 @@
         <lastmod>2013-09-08T23:48:31+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/
+        </loc>
+        <lastmod>2013-11-29T23:33:33+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://pcme.info/404.html</loc>
         <lastmod>2013-09-08T23:48:31+08:00</lastmod>
     </url>
@@ -66,11 +72,11 @@
     </url>
     <url>
         <loc>http://pcme.info/blog/archives/</loc>
-        <lastmod>2013-09-08T23:48:31+08:00</lastmod>
+        <lastmod>2013-11-29T23:33:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://pcme.info/</loc>
-        <lastmod>2013-09-08T23:48:31+08:00</lastmod>
+        <lastmod>2013-11-29T23:33:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://pcme.info/robots.txt</loc>

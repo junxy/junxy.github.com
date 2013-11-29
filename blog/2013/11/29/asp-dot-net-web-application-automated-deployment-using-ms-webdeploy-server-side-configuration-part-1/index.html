@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>使用NuGet包不提交到源代码控制 - junxy's Blog</title>
+  <title>ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1 - junxy's Blog</title>
   <meta name="author" content="junxy">
 
   
-  <meta name="description" content="参考： http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages
-http://blog.nuget.org/20120518/package-restore-and-consent.html
-http &hellip;">
+  <meta name="description" content="使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上） 一、环境配置 安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）
+安装 Web Deploy （Current 3.5），使用 Web &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ http &hellip;">
   <meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
 
   
-  <link rel="canonical" href="http://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages/">
+  <link rel="canonical" href="http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -83,7 +82,7 @@ http &hellip;">
   
   <header>
     
-      <h1 class="entry-title">使用NuGet包不提交到源代码控制</h1>
+      <h1 class="entry-title">ASP.NET Web Application Automated Deployment Using MS WebDeploy - Server-side Configuration - Part 1</h1>
     
     
       <p class="meta">
@@ -99,54 +98,73 @@ http &hellip;">
   
 
 
-<time datetime="2012-09-19T10:10:00+08:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+<time datetime="2013-11-29T23:14:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>参考：</p>
+<div class="entry-content"><h1>使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
 
-<ul>
-<li>http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages</li>
-<li>http://blog.nuget.org/20120518/package-restore-and-consent.html</li>
-<li>http://stackoverflow.com/questions/11261310/nuget-dont-see-allow-nuget-to-download-missing-packages-during-build</li>
-</ul>
+<h2>一、环境配置</h2>
+
+<ol>
+<li>安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）</li>
+<li>安装 Web Deploy （Current 3.5），使用 Web 平台安装程序。</li>
+</ol>
 
 
-<p>错误：error : Package restore is disabled by default. To give consent, open the Visual Studio Options dialog, click on Package Manager node and check &#39;Allow NuGet to download missing packages during build.&#39; You can also give consent by setting the environment variable &#39;EnableNuGetPackageRestore&#39; to &#39;true&#39;.</p>
+<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg" alt="选择安装0" /></p>
 
-<p>解决：提示在环境变量中新增一个变量：</p>
+<p>首次使用 Web 平台安装程序，会提示并要求安装</p>
 
-<p><strong>EnableNuGetPackageRestore = true</strong></p>
+<p><img src="http://ww3.sinaimg.cn/large/015c2b7dgw1eb1n9eowg8j20oo0gqacp.jpg" alt="选择安装1" /></p>
 
-<p>手动改变配置：</p>
+<p>选择安装  Web Deploy，URL重写工具（可选）</p>
 
-<p>1..sln主项目中新增：</p>
+<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1n9f47w8j20jc0c8ac2.jpg" alt="安装完成" /></p>
 
-<pre><code>Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{07BDA4AF-B93E-4F33-9E09-2FCA670A0A98}"
-    ProjectSection(SolutionItems) = preProject
-        .nuget\NuGet.Config = .nuget\NuGet.Config
-        .nuget\NuGet.exe = .nuget\NuGet.exe
-        .nuget\NuGet.targets = .nuget\NuGet.targets
-    EndProjectSection
-EndProject
-</code></pre>
+<p>安装完成！</p>
 
-<p>2.拷贝.nuget目录包含3文件(nuget.config|exe|targets)</p>
+<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1n9fu8djj20fc04bdg4.jpg" alt="确认安装0" /></p>
 
-<p>3.子项目文件.csproj新增：</p>
+<p>确认安装是否成功</p>
 
-<pre><code>&lt;Project ....
-  &lt;PropertyGroup&gt;
-    **&lt;SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'"&gt;..\&lt;/SolutionDir&gt;**
-    **&lt;RestorePackages&gt;true&lt;/RestorePackages&gt;**
-  &lt;/PropertyGroup&gt;
-  **&lt;Import Project="$(SolutionDir)\.nuget\nuget.targets" /&gt;**
-    .....
-&lt;/Project&gt;
-</code></pre>
+<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1omkd3hcj20gp08gabc.jpg" alt="确认安装1" /></p>
+
+<p>看到管理委派默认配置，恭喜你，环境配置完成 ；）</p>
+
+<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1omksxmrj20qb09s75v.jpg" alt="确认安装2" /></p>
+
+<p>安装 Web Deploy 默认会创建这两个账户，不要改动他</p>
+
+<h2>二、配置网站支持 Web Deploy</h2>
+
+<ol>
+<li>创建 Web Deploy 网站发布用户账号，支持Windows账户和IIS用户账号，这里我们选择使用IIS用户账号。</li>
+</ol>
+
+
+<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1pjcd5hyj20ky0c6dhu.jpg" alt="创建账号0" /></p>
+
+<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1pbixd7jj20d009vwf4.jpg" alt="创建账号1" /></p>
+
+<p>添加用户，要求设置强密码</p>
+
+<p>2.设置站点允许使用 Web Deploy 作为发布方式</p>
+
+<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1pao9duhj20eq0jngoa.jpg" alt="启用发布0" /></p>
+
+<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1paoosf8j20ds0dot9w.jpg" alt="启用发布1" /></p>
+
+<p>选择之前创建的 IIS 用户账号，其他可以不用设置</p>
+
+<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1q0vbq1vj20dr0dmwg4.jpg" alt="启用发布2" /></p>
+
+<p>设置，当看到类似结果，恭喜你，服务端配置到此完毕！</p>
+
+<p>接下来我将介绍 使用 Web Deploy 部署项目的部署配置，最终通过结合 Jenkins CI 达到自动化部署产品，敬请期待～ ；）</p>
 </div>
 
 
@@ -169,12 +187,12 @@ EndProject
   
 
 
-<time datetime="2012-09-19T10:10:00+08:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
+<time datetime="2013-11-29T23:14:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/tech/'>tech</a>
+    <a class='category' href='/blog/categories/-net/'>.net</a>, <a class='category' href='/blog/categories/tech/'>tech</a>, <a class='category' href='/blog/categories/webdeploy/'>webdeploy</a>
   
 </span>
 
@@ -190,14 +208,18 @@ EndProject
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/08/03/life-2012-8-3/" title="Previous Post: 近况">&laquo; 近况</a>
+        <a class="basic-alignment left" href="/blog/2013/09/06/how-to-migration-svn-to-git/" title="Previous Post: 如何将 SVN 迁移至 GIT 并保留所有历史记录">&laquo; 如何将 SVN 迁移至 GIT 并保留所有历史记录</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/09/19/p-29001/" title="Next Post: msbuild利用cpu多核加速">msbuild利用cpu多核加速 &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -260,6 +282,22 @@ EndProject
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'junxygithubcom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/';
+        var disqus_url = 'http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>使用NuGet包不提交到源代码控制 - junxy's Blog</title>
+  <title>Category: .net - junxy's Blog</title>
   <meta name="author" content="junxy">
 
   
-  <meta name="description" content="参考： http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages
-http://blog.nuget.org/20120518/package-restore-and-consent.html
-http &hellip;">
+  <meta name="description" content="Category: .net">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ http &hellip;">
   <meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
 
   
-  <link rel="canonical" href="http://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages/">
+  <link rel="canonical" href="http://pcme.infoblog/categories/-net/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,124 +77,35 @@ http &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">使用NuGet包不提交到源代码控制</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-19T10:10:00+08:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
-        
-      </p>
+    <h1 class="entry-title">Category: .net</h1>
     
   </header>
+  
+  <div id="blog-archives" class="category">
 
 
-<div class="entry-content"><p>参考：</p>
 
-<ul>
-<li>http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages</li>
-<li>http://blog.nuget.org/20120518/package-restore-and-consent.html</li>
-<li>http://stackoverflow.com/questions/11261310/nuget-dont-see-allow-nuget-to-download-missing-packages-during-build</li>
-</ul>
+  
+  <h2>2013</h2>
+
+<article>
+  
+<h1><a href="/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/">ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1</a></h1>
+<time datetime="2013-11-29T23:14:00+08:00" pubdate><span class='month'>Nov</span> <span class='day'>29</span> <span class='year'>2013</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/-net/'>.net</a>, <a class='category' href='/blog/categories/tech/'>tech</a>, <a class='category' href='/blog/categories/webdeploy/'>webdeploy</a></span>
+</footer>
 
 
-<p>错误：error : Package restore is disabled by default. To give consent, open the Visual Studio Options dialog, click on Package Manager node and check &#39;Allow NuGet to download missing packages during build.&#39; You can also give consent by setting the environment variable &#39;EnableNuGetPackageRestore&#39; to &#39;true&#39;.</p>
+</article>
 
-<p>解决：提示在环境变量中新增一个变量：</p>
-
-<p><strong>EnableNuGetPackageRestore = true</strong></p>
-
-<p>手动改变配置：</p>
-
-<p>1..sln主项目中新增：</p>
-
-<pre><code>Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{07BDA4AF-B93E-4F33-9E09-2FCA670A0A98}"
-    ProjectSection(SolutionItems) = preProject
-        .nuget\NuGet.Config = .nuget\NuGet.Config
-        .nuget\NuGet.exe = .nuget\NuGet.exe
-        .nuget\NuGet.targets = .nuget\NuGet.targets
-    EndProjectSection
-EndProject
-</code></pre>
-
-<p>2.拷贝.nuget目录包含3文件(nuget.config|exe|targets)</p>
-
-<p>3.子项目文件.csproj新增：</p>
-
-<pre><code>&lt;Project ....
-  &lt;PropertyGroup&gt;
-    **&lt;SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'"&gt;..\&lt;/SolutionDir&gt;**
-    **&lt;RestorePackages&gt;true&lt;/RestorePackages&gt;**
-  &lt;/PropertyGroup&gt;
-  **&lt;Import Project="$(SolutionDir)\.nuget\nuget.targets" /&gt;**
-    .....
-&lt;/Project&gt;
-</code></pre>
 </div>
 
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">junxy</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-19T10:10:00+08:00" pubdate data-updated="true">Sep 19<span>th</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/tech/'>tech</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2012/08/03/life-2012-8-3/" title="Previous Post: 近况">&laquo; 近况</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/09/19/p-29001/" title="Next Post: msbuild利用cpu多核加速">msbuild利用cpu多核加速 &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
 </div>
@@ -260,6 +169,19 @@ EndProject
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'junxygithubcom';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

@@ -9,7 +9,8 @@
   <meta name="author" content="junxy">
 
   
-  <meta name="description" content="前言 GIT 已经无处不在，你们还在用 SVN 管理源代码吗？如果你和你的小伙伴们正在考虑，从 SVN 迁移至 GIT，如果你们的 SVN 仓库已经够庞大（1W+ commits）和复杂（后面复杂情况详解），又想在迁移之后保留所有更改记录，这篇文章也许正是你要找的。 准备工作 需要安装那些软件& &hellip;">
+  <meta name="description" content="使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上） 一、环境配置 安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）
+安装 Web Deploy （Current 3.5），使用 Web &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -50,7 +51,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">junxy's Blog</a></h1>
   
-    <h2>作为一个有所追求的程序员，努力成为Rubyist中。</h2>
+    <h2>作为一个有所追求的程序员，好好学习 天天向上。</h2>
   
 </hgroup>
 
@@ -78,6 +79,101 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/">ASP.NET Web Application Automated Deployment Using MS WebDeploy - Server-side Configuration - Part 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-29T23:14:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
+
+<h2>一、环境配置</h2>
+
+<ol>
+<li>安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）</li>
+<li>安装 Web Deploy （Current 3.5），使用 Web 平台安装程序。</li>
+</ol>
+
+
+<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg" alt="选择安装0" /></p>
+
+<p>首次使用 Web 平台安装程序，会提示并要求安装</p>
+
+<p><img src="http://ww3.sinaimg.cn/large/015c2b7dgw1eb1n9eowg8j20oo0gqacp.jpg" alt="选择安装1" /></p>
+
+<p>选择安装  Web Deploy，URL重写工具（可选）</p>
+
+<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1n9f47w8j20jc0c8ac2.jpg" alt="安装完成" /></p>
+
+<p>安装完成！</p>
+
+<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1n9fu8djj20fc04bdg4.jpg" alt="确认安装0" /></p>
+
+<p>确认安装是否成功</p>
+
+<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1omkd3hcj20gp08gabc.jpg" alt="确认安装1" /></p>
+
+<p>看到管理委派默认配置，恭喜你，环境配置完成 ；）</p>
+
+<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1omksxmrj20qb09s75v.jpg" alt="确认安装2" /></p>
+
+<p>安装 Web Deploy 默认会创建这两个账户，不要改动他</p>
+
+<h2>二、配置网站支持 Web Deploy</h2>
+
+<ol>
+<li>创建 Web Deploy 网站发布用户账号，支持Windows账户和IIS用户账号，这里我们选择使用IIS用户账号。</li>
+</ol>
+
+
+<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1pjcd5hyj20ky0c6dhu.jpg" alt="创建账号0" /></p>
+
+<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1pbixd7jj20d009vwf4.jpg" alt="创建账号1" /></p>
+
+<p>添加用户，要求设置强密码</p>
+
+<p>2.设置站点允许使用 Web Deploy 作为发布方式</p>
+
+<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1pao9duhj20eq0jngoa.jpg" alt="启用发布0" /></p>
+
+<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1paoosf8j20ds0dot9w.jpg" alt="启用发布1" /></p>
+
+<p>选择之前创建的 IIS 用户账号，其他可以不用设置</p>
+
+<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1q0vbq1vj20dr0dmwg4.jpg" alt="启用发布2" /></p>
+
+<p>设置，当看到类似结果，恭喜你，服务端配置到此完毕！</p>
+
+<p>接下来我将介绍 使用 Web Deploy 部署项目的部署配置，最终通过结合 Jenkins CI 达到自动化部署产品，敬请期待～ ；）</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -966,48 +1062,6 @@ EndProject
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/03/life-2012-8-3/">近况</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-03T15:20:00+08:00" pubdate data-updated="true">Aug 3<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>七月过去了，进入八月，近一段时间总感觉颇为疲惫，工作效率有所下降，被公司那坑爹的系统搞的头都大了，不确定的需求，带来的是重复的工作，疲惫的主要来源。穿插不同的任务之间，需要并行处理能力支撑着，否则不但效率底下，质量也将大打折扣，好在曾第一份工作就有过这样的机会训练，虽不能说做得好，但抗压力能力还能继续&#8230;</p>
-
-<p>周末，终于可以休息一下子了，明天或者后天去一个学校的书店看看，自考的学习资料早该买回来了，报了2科死记硬背的科目也要过了啊，报考费不能白白浪费，再就一边学习学习python、ruby、mac下熟悉熟悉vim等等，不要把自己筐死在某个领域，说不定后面有自己更适合的事物，自己的惰性也改去去，总这样下去也不是办法，一年很快就过去，若干年后也不想自己还停留在目前这样，人总得有所追求，哪怕失去一些自认为不能失去或重要的东西，即时麻木了，差不多就够了，活着就得好好的活，活出自己，不要浪费粮食、浪费空气、到了老去的那一天，发现自己找不到一个值得留念的事情，那就白活了，你说是吗</p>
-
-<p>找回之前那个有上进心，向上，无忧无虑，爱学习的自己，实现自己的梦想，想我所想，做我所做，加油！！这就是此刻的自己，记录存档。</p>
-
-<p>engineer</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1023,6 +1077,10 @@ EndProject
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/">ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/09/06/how-to-migration-svn-to-git/">如何将 SVN 迁移至 GIT 并保留所有历史记录</a>
       </li>
     
@@ -1036,10 +1094,6 @@ EndProject
     
       <li class="post">
         <a href="/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/">Mac OS X Mountain Lion GIT Auto Completion</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/02/happy-new-year/">happy new year</a>
       </li>
     
   </ul>
