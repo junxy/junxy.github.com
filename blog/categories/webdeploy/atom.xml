@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: webdeploy | junxy's Blog]]></title>
+  <title><![CDATA[Category: webdeploy | Junior's Blog]]></title>
   <link href="http://pcme.info/blog/categories/webdeploy/atom.xml" rel="self"/>
   <link href="http://pcme.info/"/>
-  <updated>2013-11-29T23:45:08+08:00</updated>
+  <updated>2014-03-28T00:02:19+08:00</updated>
   <id>http://pcme.info/</id>
   <author>
-    <name><![CDATA[junxy]]></name>
+    <name><![CDATA[Junior Hsu]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2]]></title>
+    <link href="http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/"/>
+    <updated>2014-03-27T22:57:00+08:00</updated>
+    <id>http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2</id>
+    <content type="html"><![CDATA[<p>FYI  ; )</p>
+
+<p><div><script src='https://gist.github.com/1eff6ccf8ed5fcdad05a.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/1eff6ccf8ed5fcdad05a&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1]]></title>

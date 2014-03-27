@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: mac | junxy's Blog]]></title>
+  <title><![CDATA[Category: mac | Junior's Blog]]></title>
   <link href="http://pcme.info/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://pcme.info/"/>
-  <updated>2013-11-29T23:45:08+08:00</updated>
+  <updated>2014-03-28T00:02:19+08:00</updated>
   <id>http://pcme.info/</id>
   <author>
-    <name><![CDATA[junxy]]></name>
+    <name><![CDATA[Junior Hsu]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>NuGet Server 配置 错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages” - Junior's Blog</title>
+  <title>ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2 - Junior's Blog</title>
   <meta name="author" content="Junior Hsu">
 
   
-  <meta name="description" content="上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。， &hellip;">
+  <meta name="description" content="FYI ; ) &lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/1eff6ccf8ed5fcdad05a&quot;&gt;redirected&lt;/a&gt;.&lt;/body& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
 
   
-  <link rel="canonical" href="http://pcme.info/blog/2012/07/13/nuget-server-setting-error/">
+  <link rel="canonical" href="http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">NuGet Server 配置 错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”</h1>
+      <h1 class="entry-title">ASP.NET Web Application Automated Deployment Using MS WebDeploy - Client-side Configuration - Part 2</h1>
     
     
       <p class="meta">
@@ -97,25 +97,18 @@
   
 
 
-<time datetime="2012-07-13T06:15:00+08:00" pubdate data-updated="true">2012.07.13</time>
+<time datetime="2014-03-27T22:57:00+08:00" pubdate data-updated="true">2014.03.27</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。，还以为是因为服务器的 webdav 有关（当时没报出错误，只是访问会出现404之类的错误），今天赫然发现，我建项目时的命名和nuget server引用的dll有些相同，于是乎，重命名建了个项目，发布到服务器上，貌似可以了，总结nuget server配置可能的几个原因：</p>
+<div class="entry-content"><p>FYI  ; )</p>
 
-<ul>
-<li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
-<li>新建项目名称和nuget server名称冲突，换一个名称</li>
-<li>nuget server 已知bug，更新至最新版本</li>
-</ul>
+<div><script src='https://gist.github.com/1eff6ccf8ed5fcdad05a.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/1eff6ccf8ed5fcdad05a&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
 
-
-<p>标题所示说的问题应该不是问题，当时我SB了。</p>
-
-<p>Okay, enjoy it!</p>
 </div>
 
 
@@ -138,12 +131,12 @@
   
 
 
-<time datetime="2012-07-13T06:15:00+08:00" pubdate data-updated="true">2012.07.13</time>
+<time datetime="2014-03-27T22:57:00+08:00" pubdate data-updated="true">2014.03.27</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/tech/'>tech</a>
+    <a class='category' href='/blog/categories/-net/'>.net</a>, <a class='category' href='/blog/categories/tech/'>tech</a>, <a class='category' href='/blog/categories/webdeploy/'>webdeploy</a>
   
 </span>
 
@@ -159,14 +152,18 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/11/ror/" title="Previous Post: 开始学习 Ruby on Rails">&laquo; 开始学习 Ruby on Rails</a>
+        <a class="basic-alignment left" href="/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/" title="Previous Post: ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1">&laquo; ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/08/03/life-2012-8-3/" title="Next Post: 近况">近况 &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -230,6 +227,22 @@
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'junxygithubcom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/';
+        var disqus_url = 'http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
