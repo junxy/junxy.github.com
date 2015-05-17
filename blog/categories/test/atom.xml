@@ -4,7 +4,7 @@
   <title><![CDATA[Category: test | Junior's Blog]]></title>
   <link href="http://pcme.info/blog/categories/test/atom.xml" rel="self"/>
   <link href="http://pcme.info/"/>
-  <updated>2015-05-17T16:29:55+08:00</updated>
+  <updated>2015-05-17T18:00:54+08:00</updated>
   <id>http://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
@@ -19,15 +19,6 @@
     <updated>2013-02-02T15:54:00+08:00</updated>
     <id>http://pcme.info/blog/2013/02/02/hello-world</id>
     <content type="html"><![CDATA[<p>哈哈哈，八爪鱼，love it!!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[mark]]></title>
-    <link href="http://pcme.info/blog/2012/06/20/mark/"/>
-    <updated>2012-06-20T16:12:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/06/20/mark</id>
-    <content type="html"><![CDATA[<p>标记一下，成功安装GAE博客程序</p>
 ]]></content>
   </entry>
   

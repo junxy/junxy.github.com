@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby | Junior's Blog]]></title>
+  <link href="http://pcme.info/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://pcme.info/"/>
+  <updated>2015-05-17T18:00:54+08:00</updated>
+  <id>http://pcme.info/</id>
+  <author>
+    <name><![CDATA[Junior Hsu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[开始学习 Ruby on Rails]]></title>
+    <link href="http://pcme.info/blog/2012/07/11/ror/"/>
+    <updated>2012-07-11T15:30:00+08:00</updated>
+    <id>http://pcme.info/blog/2012/07/11/ror</id>
+    <content type="html"><![CDATA[<p>安装完rails后</p>
+
+<p>#创建一个rails项目</p>
+
+<p>rails new project_name</p>
+
+<p>cd project_name</p>
+
+<p>#创建一个控制器</p>
+
+<p>rails generate controller</p>
+
+<p>#启动一个rails服务器</p>
+
+<p>rails server</p>
+
+<p>*提高速度</p>
+
+<p>#跳过bundle安装，加快速度</p>
+
+<p>rails new project_name --skip-bundle</p>
+
+<p>bundle install --local</p>
+
+<p>*中文编码问题</p>
+
+<p>#coding: UTF-8</p>
+
+<p>&amp;nbsp;</p>
+
+<p>taobao rubygems mirror:</p>
+
+<p><a href="http://ruby.taobao.org/">http://ruby.taobao.org/</a></p>
+
+<p><strong>2013/04/10更新：</strong></p>
+
+<p>比较全的ruby&amp;rails环境搭建教程：</p>
+
+<p><a href="http://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/">http://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/</a></p>
+
+<p>未完待续。。。</p>
+]]></content>
+  </entry>
+  
+</feed>
