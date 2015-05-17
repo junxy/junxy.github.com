@@ -4,7 +4,7 @@ title: '终于解决Jenkins中Git仓库变更集中文注释显示乱码问题'
 date: 2013-1-11 3:17
 micolog_id: 30001
 comments: true
-categories: tech
+categories: Tech Git Jenkins Devops
 ---
 问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）
 ![Jenkins使用Git仓库变更集乱码图示](http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg)

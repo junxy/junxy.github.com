@@ -3,7 +3,7 @@ layout: post
 title: "ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2"
 date: 2014-03-27 22:57
 comments: true
-categories: tech .net webdeploy
+categories: Tech .NET WebDeploy DevOps
 ---
 
 FYI  ; )

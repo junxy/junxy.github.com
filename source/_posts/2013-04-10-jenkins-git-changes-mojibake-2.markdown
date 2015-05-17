@@ -3,8 +3,7 @@ layout: post
 title: "Jenkins中Git仓库变更集中文注释显示乱码问题（二）"
 date: 2013-04-10 20:04
 comments: true
-tag: Jenkins Git Maven
-categories: tech
+categories: Tech Jenkins Git DevOps
 ---
 之前 [一篇文章](http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/) 写过：Jenkins 中使用 Git 仓库中有 Log 日志非 [ASCII](http://en.wikipedia.org/wiki/ASCII) ，变更集会出现乱码以及一些解决过程。如今终于有人提交了这个 BUG 的修复，在 Jenkins 插件 Git Plugin 介绍页面可以看到最新的 [Changelog](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Changelog)，但是目前最新的版本还是 1.3，要等到下一版本发布才能享用？既然都有人提交了修复此 BUG 代码，那自己动手编译一个插件吧，于是尝试在自己的 MBP·13' 把 [git-plugin 源码](https://github.com/jenkinsci/git-plugin) Clone 下来，开始编译插件（Jenkins 插件通过 [Maven](http://en.wikipedia.org/wiki/Apache_Maven) 来编译，最后编译成 .hpi 格式的文件，可以在 Jenkins 直接上传安装），编译过程颇为麻烦，主要是首次编译需要下载很多依赖，而国内网络你懂得，为此还发了一条[推](https://twitter.com/jun_cn/status/321606102598946817)，最后确认2个原因导致编译失败：
 

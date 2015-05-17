@@ -3,7 +3,7 @@ layout: post
 title: "如何将 SVN 迁移至 GIT 并保留所有历史记录"
 date: 2013-09-06 23:06
 comments: true
-categories: tech git
+categories: Tech Git DevOps
 ---
 
 ## 前言

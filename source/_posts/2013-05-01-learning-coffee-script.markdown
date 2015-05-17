@@ -3,8 +3,7 @@ layout: post
 title: "学习 coffee-script 及环境安装 （Mac）"
 date: 2013-05-01 17:42
 comments: true
-tag: coffee nodejs
-categories: tech
+categories: Tech Coffee NodeJS
 ---
 
 Keyword

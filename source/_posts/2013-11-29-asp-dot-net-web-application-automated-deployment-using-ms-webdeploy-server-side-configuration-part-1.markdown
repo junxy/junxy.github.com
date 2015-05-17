@@ -3,7 +3,7 @@ layout: post
 title: "ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1"
 date: 2013-11-29 23:14
 comments: true
-categories: tech .net webdeploy
+categories: Tech .NET WebDeploy DevOps
 ---
 # 使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）#
 ## 一、环境配置 ##

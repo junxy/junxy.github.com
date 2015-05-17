@@ -4,7 +4,7 @@ title: '开始学习 Ruby on Rails'
 date: 2012-7-11 15:30
 micolog_id: 15001
 comments: false
-categories: tech
+categories: Tech ROR Ruby
 ---
 安装完rails后
 
