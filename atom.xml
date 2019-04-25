@@ -4,7 +4,7 @@
   <title><![CDATA[Junior's Blog]]></title>
   <link href="http://pcme.info/atom.xml" rel="self"/>
   <link href="http://pcme.info/"/>
-  <updated>2019-04-25T11:45:25+08:00</updated>
+  <updated>2019-04-25T12:02:19+08:00</updated>
   <id>http://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
@@ -663,8 +663,9 @@
     <link href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/"/>
     <updated>2013-01-11T03:17:00+08:00</updated>
     <id>http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake</id>
-    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）
-<img src="http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
+    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）</p>
+
+<p><img src="http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
 
 <p>解决方法：</p>
 
