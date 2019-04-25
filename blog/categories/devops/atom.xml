@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DevOps | Junior's Blog]]></title>
   <link href="https://pcme.info/blog/categories/devops/atom.xml" rel="self"/>
   <link href="https://pcme.info/"/>
-  <updated>2019-04-25T12:45:12+08:00</updated>
+  <updated>2019-04-25T12:57:26+08:00</updated>
   <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
@@ -41,7 +41,7 @@
 </ol>
 
 
-<p><img src="//ww4.sinaimg.cn/large/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg" alt="选择安装0" /></p>
+<p><img src="/images/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg" alt="选择安装0" /></p>
 
 <p>首次使用 Web 平台安装程序，会提示并要求安装</p>
 
@@ -129,7 +129,7 @@
 ＃ 说明：
 ＃   SubGit_repository_name\SubGit\authors.txt 配置 SVN 中用户提交转换 GIT 提交后对应的用户名和邮箱，
 ＃   可将多个 SVN 帐号映射到一个用户名和邮箱，格式如下
-＃   svnUser = Git User <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#117;&#x73;&#x65;&#114;&#64;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#109;">&#x75;&#115;&#101;&#114;&#64;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#111;&#109;</a>
+＃   svnUser = Git User <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#117;&#115;&#x65;&#114;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#111;&#x6d;">&#x75;&#x73;&#x65;&#114;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#109;</a>
 x:> x:\SubGit-2.0.0\bin\SubGit.bat configure --svn-url [http://svn.domain.com/svn/svn_repository_name/ or file:///x:/svn_repository_name] SubGit_repository_name</p>
 
 <h1>执行安装</h1>
