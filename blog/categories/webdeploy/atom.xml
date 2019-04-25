@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: WebDeploy | Junior's Blog]]></title>
-  <link href="http://pcme.info/blog/categories/webdeploy/atom.xml" rel="self"/>
-  <link href="http://pcme.info/"/>
-  <updated>2019-04-25T12:02:19+08:00</updated>
-  <id>http://pcme.info/</id>
+  <link href="https://pcme.info/blog/categories/webdeploy/atom.xml" rel="self"/>
+  <link href="https://pcme.info/"/>
+  <updated>2019-04-25T12:09:35+08:00</updated>
+  <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2]]></title>
-    <link href="http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/"/>
+    <link href="https://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/"/>
     <updated>2014-03-27T22:57:00+08:00</updated>
-    <id>http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2</id>
+    <id>https://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2</id>
     <content type="html"><![CDATA[<p>FYI  ; )</p>
 
 <p><div><script src='https://gist.github.com/1eff6ccf8ed5fcdad05a.js'></script>
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1]]></title>
-    <link href="http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/"/>
+    <link href="https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/"/>
     <updated>2013-11-29T23:14:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1</id>
+    <id>https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1</id>
     <content type="html"><![CDATA[<h1>使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
 
 <h2>一、环境配置</h2>

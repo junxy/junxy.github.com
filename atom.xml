@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Junior's Blog]]></title>
-  <link href="http://pcme.info/atom.xml" rel="self"/>
-  <link href="http://pcme.info/"/>
-  <updated>2019-04-25T12:02:19+08:00</updated>
-  <id>http://pcme.info/</id>
+  <link href="https://pcme.info/atom.xml" rel="self"/>
+  <link href="https://pcme.info/"/>
+  <updated>2019-04-25T12:09:35+08:00</updated>
+  <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2]]></title>
-    <link href="http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/"/>
+    <link href="https://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/"/>
     <updated>2014-03-27T22:57:00+08:00</updated>
-    <id>http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2</id>
+    <id>https://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2</id>
     <content type="html"><![CDATA[<p>FYI  ; )</p>
 
 <div><script src='https://gist.github.com/1eff6ccf8ed5fcdad05a.js'></script>
@@ -30,9 +30,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1]]></title>
-    <link href="http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/"/>
+    <link href="https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/"/>
     <updated>2013-11-29T23:14:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1</id>
+    <id>https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1</id>
     <content type="html"><![CDATA[<h1>使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
 
 <h2>一、环境配置</h2>
@@ -98,9 +98,9 @@
   
   <entry>
     <title type="html"><![CDATA[如何将 SVN 迁移至 GIT 并保留所有历史记录]]></title>
-    <link href="http://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git/"/>
+    <link href="https://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git/"/>
     <updated>2013-09-06T23:06:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git</id>
+    <id>https://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git</id>
     <content type="html"><![CDATA[<h2>前言</h2>
 
 <p>GIT 已经无处不在，你们还在用 SVN 管理源代码吗？如果你和你的小伙伴们正在考虑，从 SVN 迁移至 GIT，如果你们的 SVN 仓库已经够庞大（1W+ commits）和复杂（后面复杂情况详解），又想在迁移之后保留所有更改记录，这篇文章也许正是你要找的。</p>
@@ -393,9 +393,9 @@
   
   <entry>
     <title type="html"><![CDATA[学习 coffee-script 及环境安装 （Mac）]]></title>
-    <link href="http://pcme.info/blog/2013/05/01/learning-coffee-script/"/>
+    <link href="https://pcme.info/blog/2013/05/01/learning-coffee-script/"/>
     <updated>2013-05-01T17:42:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/05/01/learning-coffee-script</id>
+    <id>https://pcme.info/blog/2013/05/01/learning-coffee-script</id>
     <content type="html"><![CDATA[<h2>Keyword</h2>
 
 <p>Homebrew: <a href="http://mxcl.github.io/homebrew/index_zh-cn.html">http://mxcl.github.io/homebrew/index_zh-cn.html</a></p>
@@ -566,9 +566,9 @@
   
   <entry>
     <title type="html"><![CDATA[Jenkins中Git仓库变更集中文注释显示乱码问题（二）]]></title>
-    <link href="http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/"/>
+    <link href="https://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/"/>
     <updated>2013-04-10T20:04:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2</id>
+    <id>https://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2</id>
     <content type="html"><![CDATA[<p>之前 <a href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/">一篇文章</a> 写过：Jenkins 中使用 Git 仓库中有 Log 日志非 <a href="http://en.wikipedia.org/wiki/ASCII">ASCII</a> ，变更集会出现乱码以及一些解决过程。如今终于有人提交了这个 BUG 的修复，在 Jenkins 插件 Git Plugin 介绍页面可以看到最新的 <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Changelog">Changelog</a>，但是目前最新的版本还是 1.3，要等到下一版本发布才能享用？既然都有人提交了修复此 BUG 代码，那自己动手编译一个插件吧，于是尝试在自己的 MBP·13&#8217; 把 <a href="https://github.com/jenkinsci/git-plugin">git-plugin 源码</a> Clone 下来，开始编译插件（Jenkins 插件通过 <a href="http://en.wikipedia.org/wiki/Apache_Maven">Maven</a> 来编译，最后编译成 .hpi 格式的文件，可以在 Jenkins 直接上传安装），编译过程颇为麻烦，主要是首次编译需要下载很多依赖，而国内网络你懂得，为此还发了一条<a href="https://twitter.com/jun_cn/status/321606102598946817">推</a>，最后确认2个原因导致编译失败：</p>
 
 <ol>
@@ -598,9 +598,9 @@
   
   <entry>
     <title type="html"><![CDATA[Mac OS X Mountain Lion GIT Auto Completion]]></title>
-    <link href="http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/"/>
+    <link href="https://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/"/>
     <updated>2013-02-05T13:31:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion</id>
+    <id>https://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion</id>
     <content type="html"><![CDATA[<p>MacBook Pro 很早就安装了 Git，平时用的不多，也就没配置自动完成提示，今天有点时间在 Mac 上，想把自动提示配置加进去，网上找了发现有不同的方法，这里就记录下符合我这种情况下的。首先，要安装 Git，怎么安装就不说了，Google 上有很多教程，我是通过 Homebrew 安装的，
 运行： $ <code>brew install git bash-completion</code>
 安装过了的 brew 会提示：</p>
@@ -642,30 +642,29 @@
   
   <entry>
     <title type="html"><![CDATA[happy new year]]></title>
-    <link href="http://pcme.info/blog/2013/02/02/happy-new-year/"/>
+    <link href="https://pcme.info/blog/2013/02/02/happy-new-year/"/>
     <updated>2013-02-02T18:25:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/02/02/happy-new-year</id>
+    <id>https://pcme.info/blog/2013/02/02/happy-new-year</id>
     <content type="html"><![CDATA[<p>还有四天回去过春节了，大家新年快乐哈~~</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[hello world]]></title>
-    <link href="http://pcme.info/blog/2013/02/02/hello-world/"/>
+    <link href="https://pcme.info/blog/2013/02/02/hello-world/"/>
     <updated>2013-02-02T15:54:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/02/02/hello-world</id>
+    <id>https://pcme.info/blog/2013/02/02/hello-world</id>
     <content type="html"><![CDATA[<p>哈哈哈，八爪鱼，love it!!</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[终于解决Jenkins中Git仓库变更集中文注释显示乱码问题]]></title>
-    <link href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/"/>
+    <link href="https://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/"/>
     <updated>2013-01-11T03:17:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake</id>
-    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）</p>
-
-<p><img src="http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
+    <id>https://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake</id>
+    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）
+<img src="http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
 
 <p>解决方法：</p>
 
@@ -683,9 +682,9 @@
   
   <entry>
     <title type="html"><![CDATA[msbuild利用cpu多核加速]]></title>
-    <link href="http://pcme.info/blog/2012/09/19/p-29001/"/>
+    <link href="https://pcme.info/blog/2012/09/19/p-29001/"/>
     <updated>2012-09-19T10:26:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/09/19/p-29001</id>
+    <id>https://pcme.info/blog/2012/09/19/p-29001</id>
     <content type="html"><![CDATA[<p>:&gt; msbuild /t:Rebuild /p:Configuration=Release <strong>/m</strong></p>
 
 <p>/m 自动检测cpu数量启动对应数量进程</p>
@@ -694,9 +693,9 @@
   
   <entry>
     <title type="html"><![CDATA[使用NuGet包不提交到源代码控制]]></title>
-    <link href="http://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages/"/>
+    <link href="https://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages/"/>
     <updated>2012-09-19T10:10:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages</id>
+    <id>https://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages</id>
     <content type="html"><![CDATA[<p>参考：</p>
 
 <ul>
@@ -743,9 +742,9 @@ EndProject
   
   <entry>
     <title type="html"><![CDATA[近况]]></title>
-    <link href="http://pcme.info/blog/2012/08/03/life-2012-8-3/"/>
+    <link href="https://pcme.info/blog/2012/08/03/life-2012-8-3/"/>
     <updated>2012-08-03T15:20:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/08/03/life-2012-8-3</id>
+    <id>https://pcme.info/blog/2012/08/03/life-2012-8-3</id>
     <content type="html"><![CDATA[<p>七月过去了，进入八月，近一段时间总感觉颇为疲惫，工作效率有所下降，被公司那坑爹的系统搞的头都大了，不确定的需求，带来的是重复的工作，疲惫的主要来源。穿插不同的任务之间，需要并行处理能力支撑着，否则不但效率底下，质量也将大打折扣，好在曾第一份工作就有过这样的机会训练，虽不能说做得好，但抗压力能力还能继续&#8230;</p>
 
 <p>周末，终于可以休息一下子了，明天或者后天去一个学校的书店看看，自考的学习资料早该买回来了，报了2科死记硬背的科目也要过了啊，报考费不能白白浪费，再就一边学习学习python、ruby、mac下熟悉熟悉vim等等，不要把自己筐死在某个领域，说不定后面有自己更适合的事物，自己的惰性也改去去，总这样下去也不是办法，一年很快就过去，若干年后也不想自己还停留在目前这样，人总得有所追求，哪怕失去一些自认为不能失去或重要的东西，即时麻木了，差不多就够了，活着就得好好的活，活出自己，不要浪费粮食、浪费空气、到了老去的那一天，发现自己找不到一个值得留念的事情，那就白活了，你说是吗</p>
@@ -758,9 +757,9 @@ EndProject
   
   <entry>
     <title type="html"><![CDATA[NuGet Server 配置 错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”]]></title>
-    <link href="http://pcme.info/blog/2012/07/13/nuget-server-setting-error/"/>
+    <link href="https://pcme.info/blog/2012/07/13/nuget-server-setting-error/"/>
     <updated>2012-07-13T06:15:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/07/13/nuget-server-setting-error</id>
+    <id>https://pcme.info/blog/2012/07/13/nuget-server-setting-error</id>
     <content type="html"><![CDATA[<p>上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。，还以为是因为服务器的 webdav 有关（当时没报出错误，只是访问会出现404之类的错误），今天赫然发现，我建项目时的命名和nuget server引用的dll有些相同，于是乎，重命名建了个项目，发布到服务器上，貌似可以了，总结nuget server配置可能的几个原因：</p>
 
 <ul>
@@ -778,9 +777,9 @@ EndProject
   
   <entry>
     <title type="html"><![CDATA[开始学习 Ruby on Rails]]></title>
-    <link href="http://pcme.info/blog/2012/07/11/ror/"/>
+    <link href="https://pcme.info/blog/2012/07/11/ror/"/>
     <updated>2012-07-11T15:30:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/07/11/ror</id>
+    <id>https://pcme.info/blog/2012/07/11/ror</id>
     <content type="html"><![CDATA[<p>安装完rails后</p>
 
 <p>#创建一个rails项目</p>
@@ -827,9 +826,9 @@ EndProject
   
   <entry>
     <title type="html"><![CDATA[重来]]></title>
-    <link href="http://pcme.info/blog/2012/07/10/restart/"/>
+    <link href="https://pcme.info/blog/2012/07/10/restart/"/>
     <updated>2012-07-10T15:23:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/07/10/restart</id>
+    <id>https://pcme.info/blog/2012/07/10/restart</id>
     <content type="html"><![CDATA[<p>以前写的博客，很久没备份，很久没更新，托管服务商（dotnet-host.com）(被黑客??)也玩消失了，资料貌似找不回了，那就重来，不能浪费这个域名，之前的域名（blog.pcme.info）就转发到当前（blogger.pcme.info）域名了，最近工作上事情有些麻烦，明天有做不完的事情，其实也没做多少事情，这种感觉不太好，这是让我感觉到时间管理的重要性，当然这样需要大家一起来管理时间，各自有计划的工作，才能有效提高效率，开心的是前几天去了香港，当然主要不是去玩，而是把macbook带回来了，这下就有很多事情可以做了，空闲之余就可以学学ruby、python、rails、还有object C，扩展下自己的视野，这也算是我的娱乐了，哈哈&#8230;</p>
 
 <p>今天还要奖励下小芳同学把网络弄好了，虽然我觉网速不够，不过那个价格还挺便宜的，就要求不那么高了，好好学习天天向上，其次早睡早起，生活有点规律。</p>
@@ -838,9 +837,9 @@ EndProject
   
   <entry>
     <title type="html"><![CDATA[mark]]></title>
-    <link href="http://pcme.info/blog/2012/06/20/mark/"/>
+    <link href="https://pcme.info/blog/2012/06/20/mark/"/>
     <updated>2012-06-20T16:12:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/06/20/mark</id>
+    <id>https://pcme.info/blog/2012/06/20/mark</id>
     <content type="html"><![CDATA[<p>标记一下，成功安装GAE博客程序</p>
 ]]></content>
   </entry>

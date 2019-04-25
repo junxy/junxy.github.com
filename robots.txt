@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://pcme.info/sitemap.xml 
+Sitemap: https://pcme.info/sitemap.xml 

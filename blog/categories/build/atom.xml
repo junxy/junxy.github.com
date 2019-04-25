@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Build | Junior's Blog]]></title>
-  <link href="http://pcme.info/blog/categories/build/atom.xml" rel="self"/>
-  <link href="http://pcme.info/"/>
-  <updated>2019-04-25T12:02:19+08:00</updated>
-  <id>http://pcme.info/</id>
+  <link href="https://pcme.info/blog/categories/build/atom.xml" rel="self"/>
+  <link href="https://pcme.info/"/>
+  <updated>2019-04-25T12:09:35+08:00</updated>
+  <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[msbuild利用cpu多核加速]]></title>
-    <link href="http://pcme.info/blog/2012/09/19/p-29001/"/>
+    <link href="https://pcme.info/blog/2012/09/19/p-29001/"/>
     <updated>2012-09-19T10:26:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/09/19/p-29001</id>
+    <id>https://pcme.info/blog/2012/09/19/p-29001</id>
     <content type="html"><![CDATA[<p>:&gt; msbuild /t:Rebuild /p:Configuration=Release <strong>/m</strong></p>
 
 <p>/m 自动检测cpu数量启动对应数量进程</p>

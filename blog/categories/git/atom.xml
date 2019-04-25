@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Git | Junior's Blog]]></title>
-  <link href="http://pcme.info/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://pcme.info/"/>
-  <updated>2019-04-25T12:02:19+08:00</updated>
-  <id>http://pcme.info/</id>
+  <link href="https://pcme.info/blog/categories/git/atom.xml" rel="self"/>
+  <link href="https://pcme.info/"/>
+  <updated>2019-04-25T12:09:35+08:00</updated>
+  <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[如何将 SVN 迁移至 GIT 并保留所有历史记录]]></title>
-    <link href="http://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git/"/>
+    <link href="https://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git/"/>
     <updated>2013-09-06T23:06:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git</id>
+    <id>https://pcme.info/blog/2013/09/06/how-to-migration-svn-to-git</id>
     <content type="html"><![CDATA[<h2>前言</h2>
 
 <p>GIT 已经无处不在，你们还在用 SVN 管理源代码吗？如果你和你的小伙伴们正在考虑，从 SVN 迁移至 GIT，如果你们的 SVN 仓库已经够庞大（1W+ commits）和复杂（后面复杂情况详解），又想在迁移之后保留所有更改记录，这篇文章也许正是你要找的。</p>
@@ -48,7 +48,7 @@
 ＃ 说明：
 ＃   SubGit_repository_name\SubGit\authors.txt 配置 SVN 中用户提交转换 GIT 提交后对应的用户名和邮箱，
 ＃   可将多个 SVN 帐号映射到一个用户名和邮箱，格式如下
-＃   svnUser = Git User <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x75;&#115;&#101;&#114;&#x40;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x75;&#x73;&#101;&#x72;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a>
+＃   svnUser = Git User <a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x75;&#x73;&#x65;&#114;&#64;&#x65;&#120;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#x75;&#x73;&#x65;&#x72;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;</a>
 x:> x:\SubGit-2.0.0\bin\SubGit.bat configure --svn-url [http://svn.domain.com/svn/svn_repository_name/ or file:///x:/svn_repository_name] SubGit_repository_name</p>
 
 <h1>执行安装</h1>
@@ -344,9 +344,9 @@ x:> cat x:\temp\svn-project_name-0-1390-bak.dump | svndumpfilter include Documen
   
   <entry>
     <title type="html"><![CDATA[Jenkins中Git仓库变更集中文注释显示乱码问题（二）]]></title>
-    <link href="http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/"/>
+    <link href="https://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/"/>
     <updated>2013-04-10T20:04:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2</id>
+    <id>https://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2</id>
     <content type="html"><![CDATA[<p>之前 <a href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/">一篇文章</a> 写过：Jenkins 中使用 Git 仓库中有 Log 日志非 <a href="http://en.wikipedia.org/wiki/ASCII">ASCII</a> ，变更集会出现乱码以及一些解决过程。如今终于有人提交了这个 BUG 的修复，在 Jenkins 插件 Git Plugin 介绍页面可以看到最新的 <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Changelog">Changelog</a>，但是目前最新的版本还是 1.3，要等到下一版本发布才能享用？既然都有人提交了修复此 BUG 代码，那自己动手编译一个插件吧，于是尝试在自己的 MBP·13' 把 <a href="https://github.com/jenkinsci/git-plugin">git-plugin 源码</a> Clone 下来，开始编译插件（Jenkins 插件通过 <a href="http://en.wikipedia.org/wiki/Apache_Maven">Maven</a> 来编译，最后编译成 .hpi 格式的文件，可以在 Jenkins 直接上传安装），编译过程颇为麻烦，主要是首次编译需要下载很多依赖，而国内网络你懂得，为此还发了一条<a href="https://twitter.com/jun_cn/status/321606102598946817">推</a>，最后确认2个原因导致编译失败：</p>
 
 <ol>
@@ -376,9 +376,9 @@ x:> cat x:\temp\svn-project_name-0-1390-bak.dump | svndumpfilter include Documen
   
   <entry>
     <title type="html"><![CDATA[Mac OS X Mountain Lion GIT Auto Completion]]></title>
-    <link href="http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/"/>
+    <link href="https://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion/"/>
     <updated>2013-02-05T13:31:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion</id>
+    <id>https://pcme.info/blog/2013/02/05/mac-os-x-mountain-lion-git-auto-completion</id>
     <content type="html"><![CDATA[<p>MacBook Pro 很早就安装了 Git，平时用的不多，也就没配置自动完成提示，今天有点时间在 Mac 上，想把自动提示配置加进去，网上找了发现有不同的方法，这里就记录下符合我这种情况下的。首先，要安装 Git，怎么安装就不说了，Google 上有很多教程，我是通过 Homebrew 安装的，
 运行： $ <code>brew install git bash-completion</code>
 安装过了的 brew 会提示：</p>
@@ -420,12 +420,11 @@ cherry-pick              cl                       co                       confi
   
   <entry>
     <title type="html"><![CDATA[终于解决Jenkins中Git仓库变更集中文注释显示乱码问题]]></title>
-    <link href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/"/>
+    <link href="https://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/"/>
     <updated>2013-01-11T03:17:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake</id>
-    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）</p>
-
-<p><img src="http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
+    <id>https://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake</id>
+    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）
+<img src="http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
 
 <p>解决方法：</p>
 
@@ -443,9 +442,9 @@ cherry-pick              cl                       co                       confi
   
   <entry>
     <title type="html"><![CDATA[使用NuGet包不提交到源代码控制]]></title>
-    <link href="http://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages/"/>
+    <link href="https://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages/"/>
     <updated>2012-09-19T10:10:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages</id>
+    <id>https://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages</id>
     <content type="html"><![CDATA[<p>参考：</p>
 
 <ul>

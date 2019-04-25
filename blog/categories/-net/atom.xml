@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: .NET | Junior's Blog]]></title>
-  <link href="http://pcme.info/blog/categories/-net/atom.xml" rel="self"/>
-  <link href="http://pcme.info/"/>
-  <updated>2019-04-25T12:02:19+08:00</updated>
-  <id>http://pcme.info/</id>
+  <link href="https://pcme.info/blog/categories/-net/atom.xml" rel="self"/>
+  <link href="https://pcme.info/"/>
+  <updated>2019-04-25T12:09:35+08:00</updated>
+  <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2]]></title>
-    <link href="http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/"/>
+    <link href="https://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/"/>
     <updated>2014-03-27T22:57:00+08:00</updated>
-    <id>http://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2</id>
+    <id>https://pcme.info/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2</id>
     <content type="html"><![CDATA[<p>FYI  ; )</p>
 
 <p><div><script src='https://gist.github.com/1eff6ccf8ed5fcdad05a.js'></script>
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET web application automated deployment using MS WebDeploy - server-side configuration - part 1]]></title>
-    <link href="http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/"/>
+    <link href="https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/"/>
     <updated>2013-11-29T23:14:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1</id>
+    <id>https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1</id>
     <content type="html"><![CDATA[<h1>使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
 
 <h2>一、环境配置</h2>
@@ -96,9 +96,9 @@
   
   <entry>
     <title type="html"><![CDATA[msbuild利用cpu多核加速]]></title>
-    <link href="http://pcme.info/blog/2012/09/19/p-29001/"/>
+    <link href="https://pcme.info/blog/2012/09/19/p-29001/"/>
     <updated>2012-09-19T10:26:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/09/19/p-29001</id>
+    <id>https://pcme.info/blog/2012/09/19/p-29001</id>
     <content type="html"><![CDATA[<p>:&gt; msbuild /t:Rebuild /p:Configuration=Release <strong>/m</strong></p>
 
 <p>/m 自动检测cpu数量启动对应数量进程</p>
@@ -107,9 +107,9 @@
   
   <entry>
     <title type="html"><![CDATA[使用NuGet包不提交到源代码控制]]></title>
-    <link href="http://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages/"/>
+    <link href="https://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages/"/>
     <updated>2012-09-19T10:10:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages</id>
+    <id>https://pcme.info/blog/2012/09/19/using-nuget-without-committing-packages</id>
     <content type="html"><![CDATA[<p>参考：</p>
 
 <ul>
@@ -156,9 +156,9 @@ EndProject
   
   <entry>
     <title type="html"><![CDATA[NuGet Server 配置 错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”]]></title>
-    <link href="http://pcme.info/blog/2012/07/13/nuget-server-setting-error/"/>
+    <link href="https://pcme.info/blog/2012/07/13/nuget-server-setting-error/"/>
     <updated>2012-07-13T06:15:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/07/13/nuget-server-setting-error</id>
+    <id>https://pcme.info/blog/2012/07/13/nuget-server-setting-error</id>
     <content type="html"><![CDATA[<p>上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。，还以为是因为服务器的 webdav 有关（当时没报出错误，只是访问会出现404之类的错误），今天赫然发现，我建项目时的命名和nuget server引用的dll有些相同，于是乎，重命名建了个项目，发布到服务器上，貌似可以了，总结nuget server配置可能的几个原因：</p>
 
 <ul>

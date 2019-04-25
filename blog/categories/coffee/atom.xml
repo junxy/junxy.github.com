@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Coffee | Junior's Blog]]></title>
-  <link href="http://pcme.info/blog/categories/coffee/atom.xml" rel="self"/>
-  <link href="http://pcme.info/"/>
-  <updated>2019-04-25T12:02:19+08:00</updated>
-  <id>http://pcme.info/</id>
+  <link href="https://pcme.info/blog/categories/coffee/atom.xml" rel="self"/>
+  <link href="https://pcme.info/"/>
+  <updated>2019-04-25T12:09:35+08:00</updated>
+  <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[学习 coffee-script 及环境安装 （Mac）]]></title>
-    <link href="http://pcme.info/blog/2013/05/01/learning-coffee-script/"/>
+    <link href="https://pcme.info/blog/2013/05/01/learning-coffee-script/"/>
     <updated>2013-05-01T17:42:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/05/01/learning-coffee-script</id>
+    <id>https://pcme.info/blog/2013/05/01/learning-coffee-script</id>
     <content type="html"><![CDATA[<h2>Keyword</h2>
 
 <p>Homebrew: <a href="http://mxcl.github.io/homebrew/index_zh-cn.html">http://mxcl.github.io/homebrew/index_zh-cn.html</a></p>

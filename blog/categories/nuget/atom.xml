@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Nuget | Junior's Blog]]></title>
-  <link href="http://pcme.info/blog/categories/nuget/atom.xml" rel="self"/>
-  <link href="http://pcme.info/"/>
-  <updated>2019-04-25T12:02:19+08:00</updated>
-  <id>http://pcme.info/</id>
+  <link href="https://pcme.info/blog/categories/nuget/atom.xml" rel="self"/>
+  <link href="https://pcme.info/"/>
+  <updated>2019-04-25T12:09:35+08:00</updated>
+  <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[NuGet Server 配置 错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”]]></title>
-    <link href="http://pcme.info/blog/2012/07/13/nuget-server-setting-error/"/>
+    <link href="https://pcme.info/blog/2012/07/13/nuget-server-setting-error/"/>
     <updated>2012-07-13T06:15:00+08:00</updated>
-    <id>http://pcme.info/blog/2012/07/13/nuget-server-setting-error</id>
+    <id>https://pcme.info/blog/2012/07/13/nuget-server-setting-error</id>
     <content type="html"><![CDATA[<p>上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。，还以为是因为服务器的 webdav 有关（当时没报出错误，只是访问会出现404之类的错误），今天赫然发现，我建项目时的命名和nuget server引用的dll有些相同，于是乎，重命名建了个项目，发布到服务器上，貌似可以了，总结nuget server配置可能的几个原因：</p>
 
 <ul>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Jenkins | Junior's Blog]]></title>
-  <link href="http://pcme.info/blog/categories/jenkins/atom.xml" rel="self"/>
-  <link href="http://pcme.info/"/>
-  <updated>2019-04-25T12:02:19+08:00</updated>
-  <id>http://pcme.info/</id>
+  <link href="https://pcme.info/blog/categories/jenkins/atom.xml" rel="self"/>
+  <link href="https://pcme.info/"/>
+  <updated>2019-04-25T12:09:35+08:00</updated>
+  <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Jenkins中Git仓库变更集中文注释显示乱码问题（二）]]></title>
-    <link href="http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/"/>
+    <link href="https://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/"/>
     <updated>2013-04-10T20:04:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2</id>
+    <id>https://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2</id>
     <content type="html"><![CDATA[<p>之前 <a href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/">一篇文章</a> 写过：Jenkins 中使用 Git 仓库中有 Log 日志非 <a href="http://en.wikipedia.org/wiki/ASCII">ASCII</a> ，变更集会出现乱码以及一些解决过程。如今终于有人提交了这个 BUG 的修复，在 Jenkins 插件 Git Plugin 介绍页面可以看到最新的 <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Changelog">Changelog</a>，但是目前最新的版本还是 1.3，要等到下一版本发布才能享用？既然都有人提交了修复此 BUG 代码，那自己动手编译一个插件吧，于是尝试在自己的 MBP·13' 把 <a href="https://github.com/jenkinsci/git-plugin">git-plugin 源码</a> Clone 下来，开始编译插件（Jenkins 插件通过 <a href="http://en.wikipedia.org/wiki/Apache_Maven">Maven</a> 来编译，最后编译成 .hpi 格式的文件，可以在 Jenkins 直接上传安装），编译过程颇为麻烦，主要是首次编译需要下载很多依赖，而国内网络你懂得，为此还发了一条<a href="https://twitter.com/jun_cn/status/321606102598946817">推</a>，最后确认2个原因导致编译失败：</p>
 
 <ol>
@@ -47,12 +47,11 @@
   
   <entry>
     <title type="html"><![CDATA[终于解决Jenkins中Git仓库变更集中文注释显示乱码问题]]></title>
-    <link href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/"/>
+    <link href="https://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/"/>
     <updated>2013-01-11T03:17:00+08:00</updated>
-    <id>http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake</id>
-    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）</p>
-
-<p><img src="http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
+    <id>https://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake</id>
+    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）
+<img src="http://img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
 
 <p>解决方法：</p>
 
