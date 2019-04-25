@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DevOps | Junior's Blog]]></title>
   <link href="https://pcme.info/blog/categories/devops/atom.xml" rel="self"/>
   <link href="https://pcme.info/"/>
-  <updated>2019-04-25T12:28:22+08:00</updated>
+  <updated>2019-04-25T12:39:52+08:00</updated>
   <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[Junior Hsu]]></name>
@@ -41,27 +41,27 @@
 </ol>
 
 
-<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg" alt="选择安装0" /></p>
+<p><img src="//ww4.sinaimg.cn/large/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg" alt="选择安装0" /></p>
 
 <p>首次使用 Web 平台安装程序，会提示并要求安装</p>
 
-<p><img src="http://ww3.sinaimg.cn/large/015c2b7dgw1eb1n9eowg8j20oo0gqacp.jpg" alt="选择安装1" /></p>
+<p><img src="//ww3.sinaimg.cn/large/015c2b7dgw1eb1n9eowg8j20oo0gqacp.jpg" alt="选择安装1" /></p>
 
 <p>选择安装  Web Deploy，URL重写工具（可选）</p>
 
-<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1n9f47w8j20jc0c8ac2.jpg" alt="安装完成" /></p>
+<p><img src="//ww1.sinaimg.cn/large/015c2b7dgw1eb1n9f47w8j20jc0c8ac2.jpg" alt="安装完成" /></p>
 
 <p>安装完成！</p>
 
-<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1n9fu8djj20fc04bdg4.jpg" alt="确认安装0" /></p>
+<p><img src="//ww1.sinaimg.cn/large/015c2b7dgw1eb1n9fu8djj20fc04bdg4.jpg" alt="确认安装0" /></p>
 
 <p>确认安装是否成功</p>
 
-<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1omkd3hcj20gp08gabc.jpg" alt="确认安装1" /></p>
+<p><img src="//ww2.sinaimg.cn/large/015c2b7dgw1eb1omkd3hcj20gp08gabc.jpg" alt="确认安装1" /></p>
 
 <p>看到管理委派默认配置，恭喜你，环境配置完成 ；）</p>
 
-<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1omksxmrj20qb09s75v.jpg" alt="确认安装2" /></p>
+<p><img src="//ww2.sinaimg.cn/large/015c2b7dgw1eb1omksxmrj20qb09s75v.jpg" alt="确认安装2" /></p>
 
 <p>安装 Web Deploy 默认会创建这两个账户，不要改动他</p>
 
@@ -72,21 +72,21 @@
 </ol>
 
 
-<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1pjcd5hyj20ky0c6dhu.jpg" alt="创建账号0" /></p>
+<p><img src="//ww4.sinaimg.cn/large/015c2b7dgw1eb1pjcd5hyj20ky0c6dhu.jpg" alt="创建账号0" /></p>
 
-<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1pbixd7jj20d009vwf4.jpg" alt="创建账号1" /></p>
+<p><img src="//ww2.sinaimg.cn/large/015c2b7dgw1eb1pbixd7jj20d009vwf4.jpg" alt="创建账号1" /></p>
 
 <p>添加用户，要求设置强密码</p>
 
 <p>2.设置站点允许使用 Web Deploy 作为发布方式</p>
 
-<p><img src="http://ww2.sinaimg.cn/large/015c2b7dgw1eb1pao9duhj20eq0jngoa.jpg" alt="启用发布0" /></p>
+<p><img src="//ww2.sinaimg.cn/large/015c2b7dgw1eb1pao9duhj20eq0jngoa.jpg" alt="启用发布0" /></p>
 
-<p><img src="http://ww1.sinaimg.cn/large/015c2b7dgw1eb1paoosf8j20ds0dot9w.jpg" alt="启用发布1" /></p>
+<p><img src="//ww1.sinaimg.cn/large/015c2b7dgw1eb1paoosf8j20ds0dot9w.jpg" alt="启用发布1" /></p>
 
 <p>选择之前创建的 IIS 用户账号，其他可以不用设置</p>
 
-<p><img src="http://ww4.sinaimg.cn/large/015c2b7dgw1eb1q0vbq1vj20dr0dmwg4.jpg" alt="启用发布2" /></p>
+<p><img src="//ww4.sinaimg.cn/large/015c2b7dgw1eb1q0vbq1vj20dr0dmwg4.jpg" alt="启用发布2" /></p>
 
 <p>设置，当看到类似结果，恭喜你，服务端配置到此完毕！</p>
 
@@ -129,7 +129,7 @@
 ＃ 说明：
 ＃   SubGit_repository_name\SubGit\authors.txt 配置 SVN 中用户提交转换 GIT 提交后对应的用户名和邮箱，
 ＃   可将多个 SVN 帐号映射到一个用户名和邮箱，格式如下
-＃   svnUser = Git User <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x75;&#115;&#101;&#x72;&#64;&#101;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#117;&#x73;&#101;&#x72;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>
+＃   svnUser = Git User <a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#117;&#x73;&#x65;&#114;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;">&#x75;&#x73;&#101;&#114;&#64;&#101;&#x78;&#97;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a>
 x:> x:\SubGit-2.0.0\bin\SubGit.bat configure --svn-url [http://svn.domain.com/svn/svn_repository_name/ or file:///x:/svn_repository_name] SubGit_repository_name</p>
 
 <h1>执行安装</h1>
