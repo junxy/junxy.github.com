@@ -11,7 +11,7 @@ categories: Tech .NET WebDeploy DevOps
 1. 安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）
 2. 安装 Web Deploy （Current 3.5），使用 Web 平台安装程序。
 
-![选择安装0](//ww4.sinaimg.cn/large/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg)
+![选择安装0](/images/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg)
 
 首次使用 Web 平台安装程序，会提示并要求安装
 
