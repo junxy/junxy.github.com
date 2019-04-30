@@ -3,8 +3,8 @@
 # ----------------------- #
 
 url: https://pcme.info
-title: Junior's Blog
-subtitle: 最近在写PHP……
+title: XYJ | Blog
+subtitle: 技术源于生活，学习、分享与创造
 author: Junior Hsu
 simple_search: https://google.com/search
 description: 编程乃人生中一大乐趣也！
@@ -58,13 +58,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # ----------------------- #
 
 # Github repositories
-github_user: 
+github_user: junxy
 github_repo_count: 1
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user: 
+twitter_user:
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: false

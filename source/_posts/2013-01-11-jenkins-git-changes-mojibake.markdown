@@ -7,7 +7,7 @@ comments: true
 categories: Tech Git Jenkins DevOps
 ---
 问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）
-![Jenkins使用Git仓库变更集乱码图示](//img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg)
+![Jenkins使用Git仓库变更集乱码图示](#//img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg)
 
 解决方法：
 
