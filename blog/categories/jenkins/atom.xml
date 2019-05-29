@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Jenkins | 暴走编程]]></title>
   <link href="https://pcme.info/blog/categories/jenkins/atom.xml" rel="self"/>
   <link href="https://pcme.info/"/>
-  <updated>2019-05-06T12:19:45+08:00</updated>
+  <updated>2019-05-30T00:49:49+08:00</updated>
   <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[徐羿君]]></name>
@@ -18,13 +18,12 @@
     <link href="https://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2/"/>
     <updated>2013-04-10T20:04:00+08:00</updated>
     <id>https://pcme.info/blog/2013/04/10/jenkins-git-changes-mojibake-2</id>
-    <content type="html"><![CDATA[<p>之前 <a href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/">一篇文章</a> 写过：Jenkins 中使用 Git 仓库中有 Log 日志非 <a href="http://en.wikipedia.org/wiki/ASCII">ASCII</a> ，变更集会出现乱码以及一些解决过程。如今终于有人提交了这个 BUG 的修复，在 Jenkins 插件 Git Plugin 介绍页面可以看到最新的 <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Changelog">Changelog</a>，但是目前最新的版本还是 1.3，要等到下一版本发布才能享用？既然都有人提交了修复此 BUG 代码，那自己动手编译一个插件吧，于是尝试在自己的 MBP·13' 把 <a href="https://github.com/jenkinsci/git-plugin">git-plugin 源码</a> Clone 下来，开始编译插件（Jenkins 插件通过 <a href="http://en.wikipedia.org/wiki/Apache_Maven">Maven</a> 来编译，最后编译成 .hpi 格式的文件，可以在 Jenkins 直接上传安装），编译过程颇为麻烦，主要是首次编译需要下载很多依赖，而国内网络你懂得，为此还发了一条<a href="https://twitter.com/jun_cn/status/321606102598946817">推</a>，最后确认2个原因导致编译失败：</p>
+    <content type="html"><![CDATA[<p>之前 <a href="http://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/">一篇文章</a> 写过：Jenkins 中使用 Git 仓库中有 Log 日志非 <a href="http://en.wikipedia.org/wiki/ASCII">ASCII</a> ，变更集会出现乱码以及一些解决过程。如今终于有人提交了这个 BUG 的修复，在 Jenkins 插件 Git Plugin 介绍页面可以看到最新的 <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin#GitPlugin-Changelog">Changelog</a>，但是目前最新的版本还是 1.3，要等到下一版本发布才能享用？既然都有人提交了修复此 BUG 代码，那自己动手编译一个插件吧，于是尝试在自己的 MBP·13’ 把 <a href="https://github.com/jenkinsci/git-plugin">git-plugin 源码</a> Clone 下来，开始编译插件（Jenkins 插件通过 <a href="http://en.wikipedia.org/wiki/Apache_Maven">Maven</a> 来编译，最后编译成 .hpi 格式的文件，可以在 Jenkins 直接上传安装），编译过程颇为麻烦，主要是首次编译需要下载很多依赖，而国内网络你懂得，为此还发了一条<a href="https://twitter.com/jun_cn/status/321606102598946817">推</a>，最后确认2个原因导致编译失败：</p>
 
 <ol>
-<li>Clone 下来的源码 Master 分支总是构建失败，可能是代码有问题，具体没去排查，JAVA虽学过，这么多年没用就不折腾了。</li>
-<li>切换工作区至 tag：git-1.3.0，发现编译还是有错误，原因硬盘的名称中有空格，路径转换时对空格处理的不一样，导致找不到某些文件，在磁盘工具中把名称改了，发现 Terminal 中名称没改变，还重启了电脑（编译一次要4-5分支，重启只要20秒），重试，编译OK，成功后可以在 target 目录里看到名称为 git.hpi 文件。</li>
+  <li>Clone 下来的源码 Master 分支总是构建失败，可能是代码有问题，具体没去排查，JAVA虽学过，这么多年没用就不折腾了。</li>
+  <li>切换工作区至 tag：git-1.3.0，发现编译还是有错误，原因硬盘的名称中有空格，路径转换时对空格处理的不一样，导致找不到某些文件，在磁盘工具中把名称改了，发现 Terminal 中名称没改变，还重启了电脑（编译一次要4-5分支，重启只要20秒），重试，编译OK，成功后可以在 target 目录里看到名称为 git.hpi 文件。</li>
 </ol>
-
 
 <p>既然这样，那就好办了，我可以 Checkout git-1.3.0 稳定版，在稳定版的基础上通过 <code>git cherry-pick cdf149a73a51861bff07897aa42fa0535b88f99e</code> 合并 Fixd 的提交，并做了一点点<a href="https://github.com/junxy/git-plugin/compare/git-1.3.1-fix-log-utf8">修改</a>，最后顺利编译成功，不想折腾可以下载我已经编译好的 <a href="http://vdisk.weibo.com/s/x5uCM">git.hpi</a>，这样就可以提前享用，不用等官方发布啦。</p>
 
@@ -50,14 +49,15 @@
     <link href="https://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake/"/>
     <updated>2013-01-11T03:17:00+08:00</updated>
     <id>https://pcme.info/blog/2013/01/11/jenkins-git-changes-mojibake</id>
-    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）
-<img src="#//img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
+    <content type="html"><![CDATA[<p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）</p>
+
+<p><img src="#//img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
 
 <p>解决方法：</p>
 
 <p>x:\Jenkins\jenkins.xml 新增<del>蓝色</del>粗体标记参数(-Dfile.encoding=utf-8)，然后重启Jenkins服务，完毕！</p>
 
-<p>&lt;arguments>-Xrs -Xmx256m <strong>-Dfile.encoding=utf-8</strong> -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080&lt;/arguments></p>
+<p>&lt;arguments&gt;-Xrs -Xmx256m <strong>-Dfile.encoding=utf-8</strong> -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar “%BASE%\jenkins.war” –httpPort=8080&lt;/arguments&gt;</p>
 
 <p>原因： 为什么Jenkins 使用 SVN 仓库不会出现非 ANSI 字符乱码，因为 Git 插件获取变更集时 保存的不是 XML格式文档，虽然后缀都 .xml ，这就导致了显示的时候不知道已什么编码方式来显示，就使用了系统默认编码，中文的也就是 GBK。 而 GIT Commit 注释默认是 UTF-8。</p>
 

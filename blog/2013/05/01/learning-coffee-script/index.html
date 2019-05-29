@@ -9,7 +9,8 @@
   <meta name="author" content="徐羿君">
 
   
-  <meta name="description" content="Keyword Homebrew: http://mxcl.github.io/homebrew/index_zh-cn.html V8: https://code.google.com/p/v8/ NodeJS: http://nodejs.org/ Coffee: http:// &hellip;">
+  <meta name="description" content="Keyword
+Homebrew: http://mxcl.github.io/homebrew/index_zh-cn.html V8: https://code.google.com/p/v8/ NodeJS: http://nodejs.org/ Coffee: http:// &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -106,8 +107,7 @@
   </header>
 
 
-<div class="entry-content"><h2>Keyword</h2>
-
+<div class="entry-content"><h2 id="keyword">Keyword</h2>
 <p>Homebrew: <a href="http://mxcl.github.io/homebrew/index_zh-cn.html">http://mxcl.github.io/homebrew/index_zh-cn.html</a></p>
 
 <p>V8: <a href="https://code.google.com/p/v8/">https://code.google.com/p/v8/</a></p>
@@ -118,158 +118,144 @@
 
 <p>npm: <a href="https://npmjs.org/">https://npmjs.org/</a></p>
 
-<h2>环境安装（OS X）</h2>
+<h2 id="os-x">环境安装（OS X）</h2>
+<p>首先确保 Homebrew <a href="https://github.com/mxcl/homebrew/wiki/Installation">安装</a>了，
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="bash"><span class="line"><span class="nv">$ </span>brew --version
+</span><span class="line">0.9.4
+</span><span class="line">
+</span><span class="line"><span class="nv">$ </span>brew update
+</span><span class="line">
+</span><span class="line"><span class="c"># 安装 NodeJS</span>
+</span><span class="line"><span class="nv">$ </span>brew install nodejs
+</span><span class="line">
+</span><span class="line"><span class="c"># 如果之前安装过旧版本的 NodeJS，升级到当前最新版本</span>
+</span><span class="line"><span class="nv">$ </span>brew upgrade nodejs
+</span><span class="line">
+</span><span class="line"><span class="nv">$ </span>node --version
+</span><span class="line">v0.10.5
+</span><span class="line">
+</span><span class="line"><span class="nv">$ </span>npm --version
+</span><span class="line">1.2.18
+</span><span class="line">
+</span><span class="line"><span class="c"># 安装 Coffee</span>
+</span><span class="line"><span class="nv">$ </span>npm install -g coffee-script
+</span><span class="line">npm http GET https://registry.npmjs.org/coffee-script
+</span><span class="line">npm http 200 https://registry.npmjs.org/coffee-script
+</span><span class="line">npm http GET https://registry.npmjs.org/coffee-script/-/coffee-script-1.6.2.tgz
+</span><span class="line">npm http 200 https://registry.npmjs.org/coffee-script/-/coffee-script-1.6.2.tgz
+</span><span class="line">/usr/local/share/npm/bin/coffee -&gt; /usr/local/share/npm/lib/node_modules/coffee-script/bin/coffee
+</span><span class="line">/usr/local/share/npm/bin/cake -&gt; /usr/local/share/npm/lib/node_modules/coffee-script/bin/cake
+</span><span class="line">
+</span><span class="line"><span class="nv">$ </span>/usr/local/share/npm/bin/coffee --version
+</span><span class="line">CoffeeScript version 1.6.2
+</span><span class="line">
+</span><span class="line"><span class="c"># 安装 V8 JavaScript Engine，用于在 terminal 中运行 Javascript 并输出运行结果</span>
+</span><span class="line"><span class="nv">$ </span>brew install v8
+</span><span class="line"><span class="nv">$ </span>v8
+</span><span class="line">V8 version 3.18.2 <span class="o">[</span>sample shell<span class="o">]</span>
+</span><span class="line">&gt; print<span class="o">(</span>1+1<span class="o">)</span>
+</span><span class="line">2
+</span><span class="line">&gt;
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<p>首先确保 Homebrew <a href="https://github.com/mxcl/homebrew/wiki/Installation">安装</a>了，</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>brew --version
-</span><span class='line'>0.9.4
-</span><span class='line'>
-</span><span class='line'><span class="nv">$ </span>brew update
-</span><span class='line'>
-</span><span class='line'><span class="c"># 安装 NodeJS</span>
-</span><span class='line'><span class="nv">$ </span>brew install nodejs
-</span><span class='line'>
-</span><span class='line'><span class="c"># 如果之前安装过旧版本的 NodeJS，升级到当前最新版本</span>
-</span><span class='line'><span class="nv">$ </span>brew upgrade nodejs
-</span><span class='line'>
-</span><span class='line'><span class="nv">$ </span>node --version
-</span><span class='line'>v0.10.5
-</span><span class='line'>
-</span><span class='line'><span class="nv">$ </span>npm --version
-</span><span class='line'>1.2.18
-</span><span class='line'>
-</span><span class='line'><span class="c"># 安装 Coffee</span>
-</span><span class='line'><span class="nv">$ </span>npm install -g coffee-script
-</span><span class='line'>npm http GET https://registry.npmjs.org/coffee-script
-</span><span class='line'>npm http 200 https://registry.npmjs.org/coffee-script
-</span><span class='line'>npm http GET https://registry.npmjs.org/coffee-script/-/coffee-script-1.6.2.tgz
-</span><span class='line'>npm http 200 https://registry.npmjs.org/coffee-script/-/coffee-script-1.6.2.tgz
-</span><span class='line'>/usr/local/share/npm/bin/coffee -&gt; /usr/local/share/npm/lib/node_modules/coffee-script/bin/coffee
-</span><span class='line'>/usr/local/share/npm/bin/cake -&gt; /usr/local/share/npm/lib/node_modules/coffee-script/bin/cake
-</span><span class='line'>
-</span><span class='line'><span class="nv">$ </span>/usr/local/share/npm/bin/coffee --version
-</span><span class='line'>CoffeeScript version 1.6.2
-</span><span class='line'>
-</span><span class='line'><span class="c"># 安装 V8 JavaScript Engine，用于在 terminal 中运行 Javascript 并输出运行结果</span>
-</span><span class='line'><span class="nv">$ </span>brew install v8
-</span><span class='line'><span class="nv">$ </span>v8
-</span><span class='line'>V8 version 3.18.2 <span class="o">[</span>sample shell<span class="o">]</span>
-</span><span class='line'>&gt; print<span class="o">(</span>1+1<span class="o">)</span>
-</span><span class='line'>2
-</span><span class='line'>&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>编写一个 Coffee 脚本</h2>
-
-<figure class='code'><figcaption><span>example_01.js.coffee</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">square</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-</span><span class='line'><span class="n">cube</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span>
-</span><span class='line'><span class="nb">print</span> <span class="n">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<h2 id="coffee-">编写一个 Coffee 脚本</h2>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>example_01.js.coffee</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">square</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</span><span class="line"><span class="n">cube</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span>
+</span><span class="line"><span class="nb">print</span> <span class="n">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>将 Coffee 编译成 Javascript：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>/usr/local/share/npm/bin/coffee -c example_01.js.coffee
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nv">$ </span>/usr/local/share/npm/bin/coffee -c example_01.js.coffee
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<p>编译后对应生成的 Javascript 文件
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="bash"><span class="line"><span class="nv">$ </span>ls
+</span><span class="line">example_01.js.coffee	example_01.js.js
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<p>编译后对应生成的 Javascript 文件</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>example_01.js.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class="js"><span class="line"><span class="c1">// Generated by CoffeeScript 1.6.2</span>
+</span><span class="line"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="line">  <span class="kd">var</span> <span class="nx">cube</span><span class="p">,</span> <span class="nx">square</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line">  <span class="nx">square</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+</span><span class="line">  <span class="p">};</span>
+</span><span class="line">
+</span><span class="line">  <span class="nx">cube</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="k">return</span> <span class="nx">square</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+</span><span class="line">  <span class="p">};</span>
+</span><span class="line">
+</span><span class="line">  <span class="nx">print</span><span class="p">(</span><span class="nx">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+</span><span class="line">
+</span><span class="line"><span class="p">}).</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>ls
-</span><span class='line'>example_01.js.coffee  example_01.js.js
-</span></code></pre></td></tr></table></div></figure>
+<p>运行 example_01.js.js 
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="bash"><span class="line"><span class="nv">$ </span>v8 example_01.js.js
+</span><span class="line">125
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-
-
-
-<figure class='code'><figcaption><span>example_01.js.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// Generated by CoffeeScript 1.6.2</span>
-</span><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">cube</span><span class="p">,</span> <span class="nx">square</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">square</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">};</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">cube</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nx">square</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">};</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">print</span><span class="p">(</span><span class="nx">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}).</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>运行 example_01.js.js</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>v8 example_01.js.js
-</span><span class='line'>125
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>使用体会</h2>
-
+<h2 id="section">使用体会</h2>
 <p>简而言之，Coffee 的语法有点像 Ruby，数组的语法又是 <a href="http://yaml.org/">yaml</a>，对与熟悉 <a href="http://rubyonrails.org/">Rails</a> 写过 <a href="http://www.ruby-lang.org/">Ruby</a> 的很容易上手，反之，对于新手，因继承了 Ruby 的一些优点，学习来也容易理解，加上很人性的<a href="http://coffeescript.org/#language">官方文档</a>，学习的过程中可以说是一种享受，这里可能需要注意的是，如果之前没有接触过<a href="http://zh.wikipedia.org/zh/%E5%8A%A8%E6%80%81%E8%AF%AD%E8%A8%80">动态类型的语言</a>，比如从事的语言 Java 比较多，可能会受些干扰，其实他们之前没有什么必然联系。如果是 C Sharp 可能稍微好些，用过 Linq 的应该有体会，包括从 C Sharp 4.0 之后加入了一些动态语言的特性.</p>
 </div>
 
@@ -338,6 +324,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi/">The reason why the new MacBook Pro cannot connect to 2.4Ghz WiFi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/">ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2</a>
       </li>
     
@@ -351,10 +341,6 @@
     
       <li class="post">
         <a href="/blog/2013/05/01/learning-coffee-script/">学习 coffee-script 及环境安装 （Mac）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/10/jenkins-git-changes-mojibake-2/">Jenkins中Git仓库变更集中文注释显示乱码问题（二）</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Build | 暴走编程]]></title>
   <link href="https://pcme.info/blog/categories/build/atom.xml" rel="self"/>
   <link href="https://pcme.info/"/>
-  <updated>2019-05-06T12:19:45+08:00</updated>
+  <updated>2019-05-30T00:49:49+08:00</updated>
   <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[徐羿君]]></name>
@@ -21,6 +21,7 @@
     <content type="html"><![CDATA[<p>:&gt; msbuild /t:Rebuild /p:Configuration=Release <strong>/m</strong></p>
 
 <p>/m 自动检测cpu数量启动对应数量进程</p>
+
 ]]></content>
   </entry>
   

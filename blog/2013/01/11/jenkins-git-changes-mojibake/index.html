@@ -106,14 +106,15 @@
   </header>
 
 
-<div class="entry-content"><p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）
-<img src="#//img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
+<div class="entry-content"><p>问题描叙： 借用这个图片，也是这位仁兄提到的问题（http://bbs.51cto.com/thread-952489-1.html）</p>
+
+<p><img src="#//img2.51cto.com/attachments/month_1209/20120903_7e526eb2c0772fad70c68EbGhmDiVZme.png.thumb.jpg" alt="Jenkins使用Git仓库变更集乱码图示" /></p>
 
 <p>解决方法：</p>
 
 <p>x:\Jenkins\jenkins.xml 新增<del>蓝色</del>粗体标记参数(-Dfile.encoding=utf-8)，然后重启Jenkins服务，完毕！</p>
 
-<p>&lt;arguments>-Xrs -Xmx256m <strong>-Dfile.encoding=utf-8</strong> -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar &#8220;%BASE%\jenkins.war&#8221; &#8211;httpPort=8080&lt;/arguments></p>
+<p>&lt;arguments&gt;-Xrs -Xmx256m <strong>-Dfile.encoding=utf-8</strong> -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar “%BASE%\jenkins.war” –httpPort=8080&lt;/arguments&gt;</p>
 
 <p>原因： 为什么Jenkins 使用 SVN 仓库不会出现非 ANSI 字符乱码，因为 Git 插件获取变更集时 保存的不是 XML格式文档，虽然后缀都 .xml ，这就导致了显示的时候不知道已什么编码方式来显示，就使用了系统默认编码，中文的也就是 GBK。 而 GIT Commit 注释默认是 UTF-8。</p>
 
@@ -187,6 +188,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi/">The reason why the new MacBook Pro cannot connect to 2.4Ghz WiFi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/">ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2</a>
       </li>
     
@@ -200,10 +205,6 @@
     
       <li class="post">
         <a href="/blog/2013/05/01/learning-coffee-script/">学习 coffee-script 及环境安装 （Mac）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/10/jenkins-git-changes-mojibake-2/">Jenkins中Git仓库变更集中文注释显示乱码问题（二）</a>
       </li>
     
   </ul>

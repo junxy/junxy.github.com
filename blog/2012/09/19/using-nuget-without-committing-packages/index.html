@@ -9,9 +9,7 @@
   <meta name="author" content="徐羿君">
 
   
-  <meta name="description" content="参考： http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages
-http://blog.nuget.org/20120518/package-restore-and-consent.html
-http &hellip;">
+  <meta name="description" content="参考： http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages http://blog.nuget.org/20120518/package-restore-and-consent.html http &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -111,13 +109,12 @@ http &hellip;">
 <div class="entry-content"><p>参考：</p>
 
 <ul>
-<li>http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages</li>
-<li>http://blog.nuget.org/20120518/package-restore-and-consent.html</li>
-<li>http://stackoverflow.com/questions/11261310/nuget-dont-see-allow-nuget-to-download-missing-packages-during-build</li>
+  <li>http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages</li>
+  <li>http://blog.nuget.org/20120518/package-restore-and-consent.html</li>
+  <li>http://stackoverflow.com/questions/11261310/nuget-dont-see-allow-nuget-to-download-missing-packages-during-build</li>
 </ul>
 
-
-<p>错误：error : Package restore is disabled by default. To give consent, open the Visual Studio Options dialog, click on Package Manager node and check &#39;Allow NuGet to download missing packages during build.&#39; You can also give consent by setting the environment variable &#39;EnableNuGetPackageRestore&#39; to &#39;true&#39;.</p>
+<p>错误：error : Package restore is disabled by default. To give consent, open the Visual Studio Options dialog, click on Package Manager node and check &#8216;Allow NuGet to download missing packages during build.&#8217; You can also give consent by setting the environment variable &#8216;EnableNuGetPackageRestore&#8217; to &#8216;true&#8217;.</p>
 
 <p>解决：提示在环境变量中新增一个变量：</p>
 
@@ -128,27 +125,36 @@ http &hellip;">
 <p>1..sln主项目中新增：</p>
 
 <pre><code>Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{07BDA4AF-B93E-4F33-9E09-2FCA670A0A98}"
-    ProjectSection(SolutionItems) = preProject
-        .nuget\NuGet.Config = .nuget\NuGet.Config
-        .nuget\NuGet.exe = .nuget\NuGet.exe
-        .nuget\NuGet.targets = .nuget\NuGet.targets
-    EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 </code></pre>
 
-<p>2.拷贝.nuget目录包含3文件(nuget.config|exe|targets)</p>
+<table>
+  <tbody>
+    <tr>
+      <td>2.拷贝.nuget目录包含3文件(nuget.config</td>
+      <td>exe</td>
+      <td>targets)</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>3.子项目文件.csproj新增：</p>
 
 <pre><code>&lt;Project ....
   &lt;PropertyGroup&gt;
-    **&lt;SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'"&gt;..\&lt;/SolutionDir&gt;**
-    **&lt;RestorePackages&gt;true&lt;/RestorePackages&gt;**
+	**&lt;SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'"&gt;..\&lt;/SolutionDir&gt;**
+	**&lt;RestorePackages&gt;true&lt;/RestorePackages&gt;**
   &lt;/PropertyGroup&gt;
   **&lt;Import Project="$(SolutionDir)\.nuget\nuget.targets" /&gt;**
-    .....
+	.....
 &lt;/Project&gt;
 </code></pre>
+
 </div>
 
 
@@ -210,6 +216,10 @@ EndProject
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi/">The reason why the new MacBook Pro cannot connect to 2.4Ghz WiFi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/">ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2</a>
       </li>
     
@@ -223,10 +233,6 @@ EndProject
     
       <li class="post">
         <a href="/blog/2013/05/01/learning-coffee-script/">学习 coffee-script 及环境安装 （Mac）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/10/jenkins-git-changes-mojibake-2/">Jenkins中Git仓库变更集中文注释显示乱码问题（二）</a>
       </li>
     
   </ul>

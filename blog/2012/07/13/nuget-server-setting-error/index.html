@@ -109,15 +109,15 @@
 <div class="entry-content"><p>上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。，还以为是因为服务器的 webdav 有关（当时没报出错误，只是访问会出现404之类的错误），今天赫然发现，我建项目时的命名和nuget server引用的dll有些相同，于是乎，重命名建了个项目，发布到服务器上，貌似可以了，总结nuget server配置可能的几个原因：</p>
 
 <ul>
-<li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
-<li>新建项目名称和nuget server名称冲突，换一个名称</li>
-<li>nuget server 已知bug，更新至最新版本</li>
+  <li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
+  <li>新建项目名称和nuget server名称冲突，换一个名称</li>
+  <li>nuget server 已知bug，更新至最新版本</li>
 </ul>
-
 
 <p>标题所示说的问题应该不是问题，当时我SB了。</p>
 
 <p>Okay, enjoy it!</p>
+
 </div>
 
 
@@ -179,6 +179,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi/">The reason why the new MacBook Pro cannot connect to 2.4Ghz WiFi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/">ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2</a>
       </li>
     
@@ -192,10 +196,6 @@
     
       <li class="post">
         <a href="/blog/2013/05/01/learning-coffee-script/">学习 coffee-script 及环境安装 （Mac）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/10/jenkins-git-changes-mojibake-2/">Jenkins中Git仓库变更集中文注释显示乱码问题（二）</a>
       </li>
     
   </ul>

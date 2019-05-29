@@ -9,9 +9,7 @@
   <meta name="author" content="徐羿君">
 
   
-  <meta name="description" content="参考： http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages
-http://blog.nuget.org/20120518/package-restore-and-consent.html
-http &hellip;">
+  <meta name="description" content=":&gt; msbuild /t:Rebuild /p:Configuration=Release /m /m 自动检测cpu数量启动对应数量进程 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,6 +86,45 @@ http &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/09/19/p-29001/">Msbuild利用cpu多核加速</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-19T10:26:00+08:00" pubdate data-updated="true">2012.09.19</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>:&gt; msbuild /t:Rebuild /p:Configuration=Release <strong>/m</strong></p>
+
+<p>/m 自动检测cpu数量启动对应数量进程</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/09/19/using-nuget-without-committing-packages/">使用NuGet包不提交到源代码控制</a></h1>
     
     
@@ -114,13 +151,12 @@ http &hellip;">
   <div class="entry-content"><p>参考：</p>
 
 <ul>
-<li>http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages</li>
-<li>http://blog.nuget.org/20120518/package-restore-and-consent.html</li>
-<li>http://stackoverflow.com/questions/11261310/nuget-dont-see-allow-nuget-to-download-missing-packages-during-build</li>
+  <li>http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages</li>
+  <li>http://blog.nuget.org/20120518/package-restore-and-consent.html</li>
+  <li>http://stackoverflow.com/questions/11261310/nuget-dont-see-allow-nuget-to-download-missing-packages-during-build</li>
 </ul>
 
-
-<p>错误：error : Package restore is disabled by default. To give consent, open the Visual Studio Options dialog, click on Package Manager node and check &#39;Allow NuGet to download missing packages during build.&#39; You can also give consent by setting the environment variable &#39;EnableNuGetPackageRestore&#39; to &#39;true&#39;.</p>
+<p>错误：error : Package restore is disabled by default. To give consent, open the Visual Studio Options dialog, click on Package Manager node and check &#8216;Allow NuGet to download missing packages during build.&#8217; You can also give consent by setting the environment variable &#8216;EnableNuGetPackageRestore&#8217; to &#8216;true&#8217;.</p>
 
 <p>解决：提示在环境变量中新增一个变量：</p>
 
@@ -131,27 +167,36 @@ http &hellip;">
 <p>1..sln主项目中新增：</p>
 
 <pre><code>Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{07BDA4AF-B93E-4F33-9E09-2FCA670A0A98}"
-    ProjectSection(SolutionItems) = preProject
-        .nuget\NuGet.Config = .nuget\NuGet.Config
-        .nuget\NuGet.exe = .nuget\NuGet.exe
-        .nuget\NuGet.targets = .nuget\NuGet.targets
-    EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 </code></pre>
 
-<p>2.拷贝.nuget目录包含3文件(nuget.config|exe|targets)</p>
+<table>
+  <tbody>
+    <tr>
+      <td>2.拷贝.nuget目录包含3文件(nuget.config</td>
+      <td>exe</td>
+      <td>targets)</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>3.子项目文件.csproj新增：</p>
 
 <pre><code>&lt;Project ....
   &lt;PropertyGroup&gt;
-    **&lt;SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'"&gt;..\&lt;/SolutionDir&gt;**
-    **&lt;RestorePackages&gt;true&lt;/RestorePackages&gt;**
+	**&lt;SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'"&gt;..\&lt;/SolutionDir&gt;**
+	**&lt;RestorePackages&gt;true&lt;/RestorePackages&gt;**
   &lt;/PropertyGroup&gt;
   **&lt;Import Project="$(SolutionDir)\.nuget\nuget.targets" /&gt;**
-    .....
+	.....
 &lt;/Project&gt;
 </code></pre>
+
 </div>
   
   
@@ -187,13 +232,14 @@ EndProject
   </header>
 
 
-  <div class="entry-content"><p>七月过去了，进入八月，近一段时间总感觉颇为疲惫，工作效率有所下降，被公司那坑爹的系统搞的头都大了，不确定的需求，带来的是重复的工作，疲惫的主要来源。穿插不同的任务之间，需要并行处理能力支撑着，否则不但效率底下，质量也将大打折扣，好在曾第一份工作就有过这样的机会训练，虽不能说做得好，但抗压力能力还能继续&#8230;</p>
+  <div class="entry-content"><p>七月过去了，进入八月，近一段时间总感觉颇为疲惫，工作效率有所下降，被公司那坑爹的系统搞的头都大了，不确定的需求，带来的是重复的工作，疲惫的主要来源。穿插不同的任务之间，需要并行处理能力支撑着，否则不但效率底下，质量也将大打折扣，好在曾第一份工作就有过这样的机会训练，虽不能说做得好，但抗压力能力还能继续…</p>
 
 <p>周末，终于可以休息一下子了，明天或者后天去一个学校的书店看看，自考的学习资料早该买回来了，报了2科死记硬背的科目也要过了啊，报考费不能白白浪费，再就一边学习学习python、ruby、mac下熟悉熟悉vim等等，不要把自己筐死在某个领域，说不定后面有自己更适合的事物，自己的惰性也改去去，总这样下去也不是办法，一年很快就过去，若干年后也不想自己还停留在目前这样，人总得有所追求，哪怕失去一些自认为不能失去或重要的东西，即时麻木了，差不多就够了，活着就得好好的活，活出自己，不要浪费粮食、浪费空气、到了老去的那一天，发现自己找不到一个值得留念的事情，那就白活了，你说是吗</p>
 
 <p>找回之前那个有上进心，向上，无忧无虑，爱学习的自己，实现自己的梦想，想我所想，做我所做，加油！！这就是此刻的自己，记录存档。</p>
 
 <p>engineer</p>
+
 </div>
   
   
@@ -232,15 +278,15 @@ EndProject
   <div class="entry-content"><p>上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。，还以为是因为服务器的 webdav 有关（当时没报出错误，只是访问会出现404之类的错误），今天赫然发现，我建项目时的命名和nuget server引用的dll有些相同，于是乎，重命名建了个项目，发布到服务器上，貌似可以了，总结nuget server配置可能的几个原因：</p>
 
 <ul>
-<li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
-<li>新建项目名称和nuget server名称冲突，换一个名称</li>
-<li>nuget server 已知bug，更新至最新版本</li>
+  <li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
+  <li>新建项目名称和nuget server名称冲突，换一个名称</li>
+  <li>nuget server 已知bug，更新至最新版本</li>
 </ul>
-
 
 <p>标题所示说的问题应该不是问题，当时我SB了。</p>
 
 <p>Okay, enjoy it!</p>
+
 </div>
   
   
@@ -296,9 +342,9 @@ EndProject
 
 <p>#跳过bundle安装，加快速度</p>
 
-<p>rails new project_name &#8211;skip-bundle</p>
+<p>rails new project_name –skip-bundle</p>
 
-<p>bundle install &#8211;local</p>
+<p>bundle install –local</p>
 
 <p>*中文编码问题</p>
 
@@ -352,9 +398,10 @@ EndProject
   </header>
 
 
-  <div class="entry-content"><p>以前写的博客，很久没备份，很久没更新，托管服务商（dotnet-host.com）(被黑客??)也玩消失了，资料貌似找不回了，那就重来，不能浪费这个域名，之前的域名（blog.pcme.info）就转发到当前（blogger.pcme.info）域名了，最近工作上事情有些麻烦，明天有做不完的事情，其实也没做多少事情，这种感觉不太好，这是让我感觉到时间管理的重要性，当然这样需要大家一起来管理时间，各自有计划的工作，才能有效提高效率，开心的是前几天去了香港，当然主要不是去玩，而是把macbook带回来了，这下就有很多事情可以做了，空闲之余就可以学学ruby、python、rails、还有object C，扩展下自己的视野，这也算是我的娱乐了，哈哈&#8230;</p>
+  <div class="entry-content"><p>以前写的博客，很久没备份，很久没更新，托管服务商（dotnet-host.com）(被黑客??)也玩消失了，资料貌似找不回了，那就重来，不能浪费这个域名，之前的域名（blog.pcme.info）就转发到当前（blogger.pcme.info）域名了，最近工作上事情有些麻烦，明天有做不完的事情，其实也没做多少事情，这种感觉不太好，这是让我感觉到时间管理的重要性，当然这样需要大家一起来管理时间，各自有计划的工作，才能有效提高效率，开心的是前几天去了香港，当然主要不是去玩，而是把macbook带回来了，这下就有很多事情可以做了，空闲之余就可以学学ruby、python、rails、还有object C，扩展下自己的视野，这也算是我的娱乐了，哈哈…</p>
 
 <p>今天还要奖励下小芳同学把网络弄好了，虽然我觉网速不够，不过那个价格还挺便宜的，就要求不那么高了，好好学习天天向上，其次早睡早起，生活有点规律。</p>
+
 </div>
   
   
@@ -413,6 +460,10 @@ EndProject
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi/">The reason why the new MacBook Pro cannot connect to 2.4Ghz WiFi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/27/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-client-side-configuration-part-2/">ASP.NET web application automated deployment using MS WebDeploy - client-side configuration - part 2</a>
       </li>
     
@@ -426,10 +477,6 @@ EndProject
     
       <li class="post">
         <a href="/blog/2013/05/01/learning-coffee-script/">学习 coffee-script 及环境安装 （Mac）</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/10/jenkins-git-changes-mojibake-2/">Jenkins中Git仓库变更集中文注释显示乱码问题（二）</a>
       </li>
     
   </ul>

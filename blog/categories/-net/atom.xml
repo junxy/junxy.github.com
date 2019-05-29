@@ -4,7 +4,7 @@
   <title><![CDATA[Category: .NET | 暴走编程]]></title>
   <link href="https://pcme.info/blog/categories/-net/atom.xml" rel="self"/>
   <link href="https://pcme.info/"/>
-  <updated>2019-05-06T12:19:45+08:00</updated>
+  <updated>2019-05-30T00:49:49+08:00</updated>
   <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[徐羿君]]></name>
@@ -31,15 +31,13 @@
     <link href="https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/"/>
     <updated>2013-11-29T23:14:00+08:00</updated>
     <id>https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1</id>
-    <content type="html"><![CDATA[<h1>使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
-
-<h2>一、环境配置</h2>
+    <content type="html"><![CDATA[<h1 id="ms-webdeploy--aspnet-web----">使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
+<p>## 一、环境配置 ##</p>
 
 <ol>
-<li>安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）</li>
-<li>安装 Web Deploy （Current 3.5），使用 Web 平台安装程序。</li>
+  <li>安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）</li>
+  <li>安装 Web Deploy （Current 3.5），使用 Web 平台安装程序。</li>
 </ol>
-
 
 <p><img src="/images/2013/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg" alt="选择安装0" /></p>
 
@@ -65,12 +63,10 @@
 
 <p>安装 Web Deploy 默认会创建这两个账户，不要改动他</p>
 
-<h2>二、配置网站支持 Web Deploy</h2>
-
+<h2 id="web-deploy">二、配置网站支持 Web Deploy</h2>
 <ol>
-<li>创建 Web Deploy 网站发布用户账号，支持Windows账户和IIS用户账号，这里我们选择使用IIS用户账号。</li>
+  <li>创建 Web Deploy 网站发布用户账号，支持Windows账户和IIS用户账号，这里我们选择使用IIS用户账号。</li>
 </ol>
-
 
 <p><img src="/images/2013/015c2b7dgw1eb1pjcd5hyj20ky0c6dhu.jpg" alt="创建账号0" /></p>
 
@@ -102,6 +98,7 @@
     <content type="html"><![CDATA[<p>:&gt; msbuild /t:Rebuild /p:Configuration=Release <strong>/m</strong></p>
 
 <p>/m 自动检测cpu数量启动对应数量进程</p>
+
 ]]></content>
   </entry>
   
@@ -113,13 +110,12 @@
     <content type="html"><![CDATA[<p>参考：</p>
 
 <ul>
-<li>http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages</li>
-<li>http://blog.nuget.org/20120518/package-restore-and-consent.html</li>
-<li>http://stackoverflow.com/questions/11261310/nuget-dont-see-allow-nuget-to-download-missing-packages-during-build</li>
+  <li>http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages</li>
+  <li>http://blog.nuget.org/20120518/package-restore-and-consent.html</li>
+  <li>http://stackoverflow.com/questions/11261310/nuget-dont-see-allow-nuget-to-download-missing-packages-during-build</li>
 </ul>
 
-
-<p>错误：error : Package restore is disabled by default. To give consent, open the Visual Studio Options dialog, click on Package Manager node and check &#39;Allow NuGet to download missing packages during build.&#39; You can also give consent by setting the environment variable &#39;EnableNuGetPackageRestore&#39; to &#39;true&#39;.</p>
+<p>错误：error : Package restore is disabled by default. To give consent, open the Visual Studio Options dialog, click on Package Manager node and check 'Allow NuGet to download missing packages during build.' You can also give consent by setting the environment variable 'EnableNuGetPackageRestore' to 'true'.</p>
 
 <p>解决：提示在环境变量中新增一个变量：</p>
 
@@ -130,27 +126,36 @@
 <p>1..sln主项目中新增：</p>
 
 <pre><code>Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{07BDA4AF-B93E-4F33-9E09-2FCA670A0A98}"
-    ProjectSection(SolutionItems) = preProject
-        .nuget\NuGet.Config = .nuget\NuGet.Config
-        .nuget\NuGet.exe = .nuget\NuGet.exe
-        .nuget\NuGet.targets = .nuget\NuGet.targets
-    EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 </code></pre>
 
-<p>2.拷贝.nuget目录包含3文件(nuget.config|exe|targets)</p>
+<table>
+  <tbody>
+    <tr>
+      <td>2.拷贝.nuget目录包含3文件(nuget.config</td>
+      <td>exe</td>
+      <td>targets)</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>3.子项目文件.csproj新增：</p>
 
 <pre><code>&lt;Project ....
   &lt;PropertyGroup&gt;
-    **&lt;SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'"&gt;..\&lt;/SolutionDir&gt;**
-    **&lt;RestorePackages&gt;true&lt;/RestorePackages&gt;**
+	**&lt;SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'"&gt;..\&lt;/SolutionDir&gt;**
+	**&lt;RestorePackages&gt;true&lt;/RestorePackages&gt;**
   &lt;/PropertyGroup&gt;
   **&lt;Import Project="$(SolutionDir)\.nuget\nuget.targets" /&gt;**
-    .....
+	.....
 &lt;/Project&gt;
 </code></pre>
+
 ]]></content>
   </entry>
   
@@ -162,15 +167,15 @@ EndProject
     <content type="html"><![CDATA[<p>上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。，还以为是因为服务器的 webdav 有关（当时没报出错误，只是访问会出现404之类的错误），今天赫然发现，我建项目时的命名和nuget server引用的dll有些相同，于是乎，重命名建了个项目，发布到服务器上，貌似可以了，总结nuget server配置可能的几个原因：</p>
 
 <ul>
-<li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
-<li>新建项目名称和nuget server名称冲突，换一个名称</li>
-<li>nuget server 已知bug，更新至最新版本</li>
+  <li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
+  <li>新建项目名称和nuget server名称冲突，换一个名称</li>
+  <li>nuget server 已知bug，更新至最新版本</li>
 </ul>
-
 
 <p>标题所示说的问题应该不是问题，当时我SB了。</p>
 
 <p>Okay, enjoy it!</p>
+
 ]]></content>
   </entry>
   

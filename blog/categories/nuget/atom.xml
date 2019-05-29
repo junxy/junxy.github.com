@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Nuget | 暴走编程]]></title>
   <link href="https://pcme.info/blog/categories/nuget/atom.xml" rel="self"/>
   <link href="https://pcme.info/"/>
-  <updated>2019-05-06T12:19:45+08:00</updated>
+  <updated>2019-05-30T00:49:49+08:00</updated>
   <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[徐羿君]]></name>
@@ -21,15 +21,15 @@
     <content type="html"><![CDATA[<p>上次配置 nuget server 时遇到些错误：未能从程序集“Nuget.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”中加载类型“NuGet.Server.DataServices.Packages”。，还以为是因为服务器的 webdav 有关（当时没报出错误，只是访问会出现404之类的错误），今天赫然发现，我建项目时的命名和nuget server引用的dll有些相同，于是乎，重命名建了个项目，发布到服务器上，貌似可以了，总结nuget server配置可能的几个原因：</p>
 
 <ul>
-<li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
-<li>新建项目名称和nuget server名称冲突，换一个名称</li>
-<li>nuget server 已知bug，更新至最新版本</li>
+  <li>webdav冲突，在iis &amp;ldquo;处理程序映射&amp;rdquo;中删除/禁用 webdav</li>
+  <li>新建项目名称和nuget server名称冲突，换一个名称</li>
+  <li>nuget server 已知bug，更新至最新版本</li>
 </ul>
-
 
 <p>标题所示说的问题应该不是问题，当时我SB了。</p>
 
 <p>Okay, enjoy it!</p>
+
 ]]></content>
   </entry>
   

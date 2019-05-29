@@ -4,7 +4,7 @@
   <title><![CDATA[Category: WebDeploy | 暴走编程]]></title>
   <link href="https://pcme.info/blog/categories/webdeploy/atom.xml" rel="self"/>
   <link href="https://pcme.info/"/>
-  <updated>2019-05-06T12:19:45+08:00</updated>
+  <updated>2019-05-30T00:49:49+08:00</updated>
   <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[徐羿君]]></name>
@@ -31,15 +31,13 @@
     <link href="https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1/"/>
     <updated>2013-11-29T23:14:00+08:00</updated>
     <id>https://pcme.info/blog/2013/11/29/asp-dot-net-web-application-automated-deployment-using-ms-webdeploy-server-side-configuration-part-1</id>
-    <content type="html"><![CDATA[<h1>使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
-
-<h2>一、环境配置</h2>
+    <content type="html"><![CDATA[<h1 id="ms-webdeploy--aspnet-web----">使用 MS WebDeploy 自动化部署 ASP.Net Web 程序 - 服务端配置（上）</h1>
+<p>## 一、环境配置 ##</p>
 
 <ol>
-<li>安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）</li>
-<li>安装 Web Deploy （Current 3.5），使用 Web 平台安装程序。</li>
+  <li>安装 Windows Server（Current 2012）、配置IIS（Google 一大把，这里不做介绍了…）</li>
+  <li>安装 Web Deploy （Current 3.5），使用 Web 平台安装程序。</li>
 </ol>
-
 
 <p><img src="/images/2013/015c2b7dgw1eb1ouygmyxj20fd0e90uh.jpg" alt="选择安装0" /></p>
 
@@ -65,12 +63,10 @@
 
 <p>安装 Web Deploy 默认会创建这两个账户，不要改动他</p>
 
-<h2>二、配置网站支持 Web Deploy</h2>
-
+<h2 id="web-deploy">二、配置网站支持 Web Deploy</h2>
 <ol>
-<li>创建 Web Deploy 网站发布用户账号，支持Windows账户和IIS用户账号，这里我们选择使用IIS用户账号。</li>
+  <li>创建 Web Deploy 网站发布用户账号，支持Windows账户和IIS用户账号，这里我们选择使用IIS用户账号。</li>
 </ol>
-
 
 <p><img src="/images/2013/015c2b7dgw1eb1pjcd5hyj20ky0c6dhu.jpg" alt="创建账号0" /></p>
 
