@@ -10,7 +10,7 @@ categories: Fixes Mac
 
 尝试优化 5G WiFi 传输速率时，发现我的 MacBook Pro(2016 Multi-Touch Bar 高配版) 无法连接 2.4G 的 WiFi。一开始是输入正确的密码，也无法连接，之后是连输入密码这一步都到不了，直接提示无法连接。用其他设备可以正常连接 2.4G WiFi，可以排除，不是路由器的问题。
 
-![](/images/2019/5/WX20190529-225620@2x.jpg)
+![](https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225620@2x.jpg)
 
 以前没有发现这个问题，还以为是 macOS Mojave 系统问题，重启系统、更新系统版本到 `10.14.5 (18F132)` 问题依旧。
 
@@ -18,7 +18,7 @@ categories: Fixes Mac
 
 查了不少资料，中文很少有说到点，最后用英文关键词搜索 `macos mojave cannot connect 2.4g` 应该是找到了答案：**USB3.0 会干扰 2.4G WiFi**。
 
-![](/images/2019/5/WX20190529-225621@2x.png)
+![](https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225621@2x.png)
 Ref: <https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2-4ghz.2064959/#post-27194251>
 
 赶紧验证一下：
@@ -50,7 +50,7 @@ Ref: <https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2-4ghz.20
 ## 最后分享两个 WiFi 相关的
 
 1.在 macOS 中点击 WiFi 图标时，按住 `option` 键，可以查看到详细的 WiFi 连接信息
-![](/images/2019/5/WX20190529-225622@2x.png)
+![](https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225622@2x.png)
 
 2.关于 5G WiFi 的优化的方法之一，使用 DFS 频道。所谓 DFS 频道，就是不同国家和地区限制部分 5Ghz 频道的使用，但符合相关设定也可以使用。
 
@@ -58,8 +58,8 @@ Ref: <https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2-4ghz.20
 
 有些路由器系统可以开启所有支持的频道，我实际测试下来，使用 DFS 频道效果不明显，不知道是不是兼容问题。不过周围 5G WiFi 频道不多，干扰不大，就先这样了。
 
-![](/images/2019/5/WX20190529-225623@2x.png)
-![](/images/2019/5/WX20190529-225624@2x.png)
+![](https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225623@2x.png)
+![](https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225624@2x.png)
 
 了解 DFS 更多：
 
@@ -67,7 +67,7 @@ Ref: <https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2-4ghz.20
 - [Wikipedia:WLAN信道列表#5_GHz_(802.11a/h/j/n/ac)[11]](https://zh.wikipedia.org/wiki/WLAN%E4%BF%A1%E9%81%93%E5%88%97%E8%A1%A8#5_GHz_(802.11a/h/j/n/ac)[11])
 
 优化 WiFi 的时候可以借助像 `WiFi Explorer` 的 App 来帮助分析所在环境 WiFi 频道使用情况
-![](/images/2019/5/WX20190529-225625@2x.png)
+![](https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225625@2x.png)
 
 
 关键词： Mac、WiFi、DFS
