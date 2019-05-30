@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Fixes | 暴走编程]]></title>
   <link href="https://pcme.info/blog/categories/fixes/atom.xml" rel="self"/>
   <link href="https://pcme.info/"/>
-  <updated>2019-05-30T11:17:09+08:00</updated>
+  <updated>2019-05-30T11:33:16+08:00</updated>
   <id>https://pcme.info/</id>
   <author>
     <name><![CDATA[徐羿君]]></name>
@@ -22,7 +22,7 @@
 
 <p>尝试优化 5G WiFi 传输速率时，发现我的 MacBook Pro(2016 Multi-Touch Bar 高配版) 无法连接 2.4G 的 WiFi。一开始是输入正确的密码，也无法连接，之后是连输入密码这一步都到不了，直接提示无法连接。用其他设备可以正常连接 2.4G WiFi，可以排除，不是路由器的问题。</p>
 
-<p><img src="/images/2019/5/WX20190529-225620@2x.jpg" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225620@2x.jpg" alt="" /></p>
 
 <p>以前没有发现这个问题，还以为是 macOS Mojave 系统问题，重启系统、更新系统版本到 <code>10.14.5 (18F132)</code> 问题依旧。</p>
 
@@ -30,7 +30,7 @@
 
 <p>查了不少资料，中文很少有说到点，最后用英文关键词搜索 <code>macos mojave cannot connect 2.4g</code> 应该是找到了答案：<strong>USB3.0 会干扰 2.4G WiFi</strong>。</p>
 
-<p><img src="/images/2019/5/WX20190529-225621@2x.png" alt="" />
+<p><img src="https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225621@2x.png" alt="" />
 Ref: <a href="https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2-4ghz.2064959/#post-27194251">https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2-4ghz.2064959/#post-27194251</a></p>
 
 <p>赶紧验证一下：</p>
@@ -68,7 +68,7 @@ Ref: <a href="https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2
 <h2 id="wifi-">最后分享两个 WiFi 相关的</h2>
 
 <p>1.在 macOS 中点击 WiFi 图标时，按住 <code>option</code> 键，可以查看到详细的 WiFi 连接信息
-<img src="/images/2019/5/WX20190529-225622@2x.png" alt="" /></p>
+<img src="https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225622@2x.png" alt="" /></p>
 
 <p>2.关于 5G WiFi 的优化的方法之一，使用 DFS 频道。所谓 DFS 频道，就是不同国家和地区限制部分 5Ghz 频道的使用，但符合相关设定也可以使用。</p>
 
@@ -76,8 +76,8 @@ Ref: <a href="https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2
 
 <p>有些路由器系统可以开启所有支持的频道，我实际测试下来，使用 DFS 频道效果不明显，不知道是不是兼容问题。不过周围 5G WiFi 频道不多，干扰不大，就先这样了。</p>
 
-<p><img src="/images/2019/5/WX20190529-225623@2x.png" alt="" />
-<img src="/images/2019/5/WX20190529-225624@2x.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225623@2x.png" alt="" />
+<img src="https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225624@2x.png" alt="" /></p>
 
 <p>了解 DFS 更多：</p>
 
@@ -87,7 +87,7 @@ Ref: <a href="https://forums.macrumors.com/threads/wifi-issues-with-new-mbp-on-2
 </ul>
 
 <p>优化 WiFi 的时候可以借助像 <code>WiFi Explorer</code> 的 App 来帮助分析所在环境 WiFi 频道使用情况
-<img src="/images/2019/5/WX20190529-225625@2x.png" alt="" /></p>
+<img src="https://cdn.jsdelivr.net/gh/junxy/junxy.github.com/images/2019/5/WX20190529-225625@2x.png" alt="" /></p>
 
 <p>关键词： Mac、WiFi、DFS</p>
 ]]></content>
