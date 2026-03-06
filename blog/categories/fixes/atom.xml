@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Fixes | 暴走编程]]></title>
-  <link href="https://pcme.info/blog/categories/fixes/atom.xml" rel="self"/>
-  <link href="https://pcme.info/"/>
+  <link href="https://2019.vibejun.com/blog/categories/fixes/atom.xml" rel="self"/>
+  <link href="https://2019.vibejun.com/"/>
   <updated>2019-08-29T12:13:38+08:00</updated>
-  <id>https://pcme.info/</id>
+  <id>https://2019.vibejun.com/</id>
   <author>
     <name><![CDATA[XuYiJun]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[新款 MacBook Pro 无法连接 2.4G WiFi？]]></title>
-    <link href="https://pcme.info/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi/"/>
+    <link href="https://2019.vibejun.com/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi/"/>
     <updated>2019-05-29T22:52:00+08:00</updated>
-    <id>https://pcme.info/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi</id>
+    <id>https://2019.vibejun.com/blog/2019/05/29/the-reason-why-the-new-macbook-pro-cannot-connect-to-2-dot-4ghz-wifi</id>
     <content type="html"><![CDATA[<h2 id="section">问题的发现</h2>
 
 <p>尝试优化 5G WiFi 传输速率时，发现我的 MacBook Pro(2016 Multi-Touch Bar 高配版) 无法连接 2.4G 的 WiFi。一开始是输入正确的密码，也无法连接，之后是连输入密码这一步都到不了，直接提示无法连接。用其他设备可以正常连接 2.4G WiFi，可以排除，不是路由器的问题。</p>

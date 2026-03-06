@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Test | 暴走编程]]></title>
-  <link href="https://pcme.info/blog/categories/test/atom.xml" rel="self"/>
-  <link href="https://pcme.info/"/>
+  <link href="https://2019.vibejun.com/blog/categories/test/atom.xml" rel="self"/>
+  <link href="https://2019.vibejun.com/"/>
   <updated>2019-08-29T12:13:38+08:00</updated>
-  <id>https://pcme.info/</id>
+  <id>https://2019.vibejun.com/</id>
   <author>
     <name><![CDATA[XuYiJun]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[mark]]></title>
-    <link href="https://pcme.info/blog/2012/06/20/mark/"/>
+    <link href="https://2019.vibejun.com/blog/2012/06/20/mark/"/>
     <updated>2012-06-20T16:12:00+08:00</updated>
-    <id>https://pcme.info/blog/2012/06/20/mark</id>
+    <id>https://2019.vibejun.com/blog/2012/06/20/mark</id>
     <content type="html"><![CDATA[<p>标记一下，成功安装GAE博客程序</p>
 ]]></content>
   </entry>

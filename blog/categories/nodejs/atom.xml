@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: NodeJS | 暴走编程]]></title>
-  <link href="https://pcme.info/blog/categories/nodejs/atom.xml" rel="self"/>
-  <link href="https://pcme.info/"/>
+  <link href="https://2019.vibejun.com/blog/categories/nodejs/atom.xml" rel="self"/>
+  <link href="https://2019.vibejun.com/"/>
   <updated>2019-08-29T12:13:38+08:00</updated>
-  <id>https://pcme.info/</id>
+  <id>https://2019.vibejun.com/</id>
   <author>
     <name><![CDATA[XuYiJun]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[学习 coffee-script 及环境安装 （Mac）]]></title>
-    <link href="https://pcme.info/blog/2013/05/01/learning-coffee-script/"/>
+    <link href="https://2019.vibejun.com/blog/2013/05/01/learning-coffee-script/"/>
     <updated>2013-05-01T17:42:00+08:00</updated>
-    <id>https://pcme.info/blog/2013/05/01/learning-coffee-script</id>
+    <id>https://2019.vibejun.com/blog/2013/05/01/learning-coffee-script</id>
     <content type="html"><![CDATA[<h2 id="keyword">Keyword</h2>
 <p>Homebrew: <a href="http://mxcl.github.io/homebrew/index_zh-cn.html">http://mxcl.github.io/homebrew/index_zh-cn.html</a></p>
 

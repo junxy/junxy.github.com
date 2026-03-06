@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby | 暴走编程]]></title>
-  <link href="https://pcme.info/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="https://pcme.info/"/>
+  <link href="https://2019.vibejun.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="https://2019.vibejun.com/"/>
   <updated>2019-08-29T12:13:38+08:00</updated>
-  <id>https://pcme.info/</id>
+  <id>https://2019.vibejun.com/</id>
   <author>
     <name><![CDATA[XuYiJun]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[开始学习 Ruby on Rails]]></title>
-    <link href="https://pcme.info/blog/2012/07/11/ror/"/>
+    <link href="https://2019.vibejun.com/blog/2012/07/11/ror/"/>
     <updated>2012-07-11T15:30:00+08:00</updated>
-    <id>https://pcme.info/blog/2012/07/11/ror</id>
+    <id>https://2019.vibejun.com/blog/2012/07/11/ror</id>
     <content type="html"><![CDATA[<p>安装完rails后</p>
 
 <p>#创建一个rails项目</p>
